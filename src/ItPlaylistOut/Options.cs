@@ -28,6 +28,15 @@ namespace ItPlaylistOut
             Required = true)]
         public string OutFile { get; set; } = null!;
 
+        [Option('j', "jacketFolder",
+            MetaValue = "path",
+            HelpText = "Output directory for jackets.")]
+        public string? JacketFolder { get; set; } = null!;
+
+        [Option('l', "losslessJacket",
+            HelpText = "Output lossless jackets.")]
+        public bool LosslessJackets { get; set; }
+
         // ReSharper disable once UnusedMember.Local
         [Usage] public static Example[] Examples => s_examples;
 

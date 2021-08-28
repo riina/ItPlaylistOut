@@ -6,11 +6,14 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Linq;
 using CommandLine;
 using SimplePlistXmlRead;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using TagLib;
 using TagLib.Mpeg4;
@@ -76,7 +79,7 @@ namespace ItPlaylistOut
                     if (!track.TryGetString("Name", out string? name))
                     {
                         Console.WriteLine($"Warning: Missing name on track {v}");
-                        name = $"??? (ID {v}";
+                        name = $"??? (ID {v})";
                     }
 
                     songData.Name = name;
@@ -84,7 +87,7 @@ namespace ItPlaylistOut
                     if (!track.TryGetString("Location", out string? location))
                         Console.WriteLine($"Warning: Missing location on track \"{name}\"");
                     var tagfile = location != null
-                        ? TagLib.File.Create(HttpUtility.UrlDecode(TrimNetpathStart(location)))
+                        ? TagLib.File.Create(DecodePath(TrimNetpathStart(location)))
                         : null;
 
                     if (track.TryGetString("Album", out string? album))
@@ -105,6 +108,11 @@ namespace ItPlaylistOut
                         if (tagfile.GetTag(TagTypes.Apple) is AppleTag {Comment: { }} mp4Apple)
                         {
                             if (!TryGetDlLink(mp4Apple.Comment, out link)) link = null;
+                            if (mp4Apple.Copyright != null) songData.Copyright = mp4Apple.Copyright;
+                            // https://music.apple.com/us/album/arcahv/1523598787?i=1523598795
+                            // Z<bh:d0>E<bh:cb>
+                            // extract from song
+                            // TODO
                             goto linkDone;
                         }
 
@@ -125,13 +133,13 @@ namespace ItPlaylistOut
                     {
                         if (tagfile.GetTag(TagTypes.Apple) is AppleTag {Comment: { }} mp4Apple)
                         {
-                            if (!TryGetImageSha1(mp4Apple.Pictures, out jacketSha1)) jacketSha1 = null;
+                            if (!TryGetImageSha1(mp4Apple.Pictures, opts, out jacketSha1)) jacketSha1 = null;
                             goto artDone;
                         }
 
                         if (tagfile.GetTag(TagTypes.Id3v2) is TagLib.Id3v2.Tag {Comment: { }} mp3)
                         {
-                            if (!TryGetImageSha1(mp3.Pictures, out jacketSha1)) jacketSha1 = null;
+                            if (!TryGetImageSha1(mp3.Pictures, opts, out jacketSha1)) jacketSha1 = null;
                             goto artDone;
                         }
                     }
@@ -144,11 +152,20 @@ namespace ItPlaylistOut
                 }
             }
 
+            MakeDirsForFile(opts.OutFile);
             using FileStream fs = File.Create(opts.OutFile);
             JsonSerializer.Serialize(new Utf8JsonWriter(fs, s_jwo), pl, s_jso);
         }
 
-        private static bool TryGetImageSha1(IPicture[] pictures, out string? sha1)
+        private static readonly Regex _pathRegex = new(@"(%[A-Za-z\d]{2})+");
+
+        private static string DecodePath(string path) =>
+            _pathRegex.Replace(path, match => HttpUtility.UrlDecode(match.Value));
+
+        private static readonly PngEncoder s_pngEncoder = new();
+        private static readonly JpegEncoder s_jpegEncoder = new();
+
+        private static bool TryGetImageSha1(IPicture[] pictures, Options opts, out string? sha1)
         {
             if (pictures.Length == 0) goto fail;
             try
@@ -163,6 +180,22 @@ namespace ItPlaylistOut
                 }
 
                 sha1 = Convert.ToHexString(SHA1.HashData(MemoryMarshal.Cast<Rgba32, byte>(span)));
+                if (opts.JacketFolder != null)
+                {
+                    string targetFile =
+                        Path.Combine(opts.JacketFolder, sha1 + (opts.LosslessJackets ? ".png" : ".jpg"));
+                    if (!File.Exists(targetFile))
+                        try
+                        {
+                            MakeDirsForFile(targetFile);
+                            img.Save(targetFile, opts.LosslessJackets ? s_pngEncoder : s_jpegEncoder);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine($"Failed to write image for sha1-{sha1}\n{e}");
+                        }
+                }
+
                 return true;
             }
             catch
@@ -174,6 +207,8 @@ namespace ItPlaylistOut
             sha1 = null;
             return false;
         }
+
+        private static void MakeDirsForFile(string file) => Directory.CreateDirectory(Path.GetDirectoryName(file)!);
 
         private static bool TryGetDlLink(string text, [NotNullWhen(true)] out SourceInfo? link)
         {

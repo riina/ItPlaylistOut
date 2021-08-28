@@ -11,6 +11,7 @@ namespace ItPlaylistOut
     }
 
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
     internal class SongData
     {
         public string Name { get; set; } = null!;
@@ -24,5 +25,7 @@ namespace ItPlaylistOut
         public string? Link { get; set; }
 
         public string? JacketSha1 { get; set; }
+
+        public string? Copyright { get; set; }
     }
 }
