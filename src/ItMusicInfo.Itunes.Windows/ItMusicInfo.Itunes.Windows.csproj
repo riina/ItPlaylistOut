@@ -1,20 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <LangVersion>9</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.8.0" />
-    <PackageReference Include="TagLibSharp" Version="2.2.0" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ItMusicInfo.Itunes.Windows\ItMusicInfo.Itunes.Windows.csproj" />
     <ProjectReference Include="..\ItMusicInfo\ItMusicInfo.csproj" />
     <ProjectReference Include="..\SimplePlistXmlRead\SimplePlistXmlRead.csproj" />
   </ItemGroup>

@@ -11,7 +11,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using TagLib;
 using TagLib.Mpeg4;
 
-namespace ItSongMeta
+namespace ItMusicInfo
 {
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace ItSongMeta
+namespace ItMusicInfo
 {
     internal static class CommentRegex
     {

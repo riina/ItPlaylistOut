@@ -1,24 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Linq;
 using System.Text.Json;
-using System.Text.RegularExpressions;
-using System.Web;
-using System.Xml.Linq;
 using CommandLine;
-using ItSongMeta;
-using SimplePlistXmlRead;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats.Jpeg;
-using SixLabors.ImageSharp.Formats.Png;
+using CommandLine.Text;
+using ItMusicInfo;
+using ItMusicInfo.Itunes.Windows;
 using File = System.IO.File;
 
 namespace ItPlaylistOut
 {
     internal static class Program
     {
-        private const string LibraryFile = "iTunes Music Library.xml";
         private static readonly JsonSerializerOptions s_jso = new() {IgnoreNullValues = true};
         private static readonly JsonWriterOptions s_jwo = new() {Indented = true};
 
@@ -26,153 +19,68 @@ namespace ItPlaylistOut
 
         private static void Process(Options opts)
         {
-            var xml = XElement.Load(Path.Combine(opts.LibraryPath, LibraryFile));
-            var rootDict = new PlistDict(xml.Elements("dict").First());
-
-            if (!rootDict.TryGetDictionary("Tracks", out var tracks))
+            var pl = WindowsItunes.GetPlaylist(opts.LibraryPath, opts.Playlist);
+            if (pl == null)
             {
-                Console.WriteLine("Failed to get Tracks section in src file");
+                Console.WriteLine("Failed to get playlist");
                 return;
             }
 
-            if (!rootDict.TryGetArray("Playlists", out var playlists))
-            {
-                Console.WriteLine("Failed to get Playlists section in src file");
-                return;
-            }
+            if (opts.JacketFolder != null)
+                foreach (var song in pl.Songs)
+                    if (song.Jacket != null)
+                        Jackets.WriteImage(opts.JacketFolder, opts.LosslessJackets, song.Jacket);
 
-            if (playlists.OfType<PlistDict>().FirstOrDefault(v =>
-                v.TryGetString("Name", out string? value) &&
-                string.Equals(value, opts.Playlist, StringComparison.InvariantCultureIgnoreCase)) is not { } playlist)
-            {
-                Console.WriteLine($"Failed to find playlist named {opts.Playlist} in src file");
-                return;
-            }
-
-            if (!playlist.TryGetArray("Playlist Items", out var items))
-            {
-                Console.WriteLine("Failed to find playlist content data in src file");
-                return;
-            }
-
-            var itemKeys = items.OfType<PlistDict>()
-                .Select(d => d.TryGetInteger("Track ID", out long? value) ? value : null).ToList();
-
-            var pl = new PlaylistData {Name = (string)(playlist["Name"] as PlistString)!, Songs = new List<SongData>()};
-            int i = 0, c = itemKeys.Count;
-            foreach (long? x in itemKeys)
-            {
-                Console.WriteLine($"{++i}/{c}...");
-                if (x is not { } v) continue;
-
-                if (tracks.TryGetValue(v.ToString(), out var t) && t is PlistDict track)
-                {
-                    // If file's found, work purely off file
-                    if (track.TryGetString("Location", out string? location))
-                    {
-                        var songData = SongData.Extract(DecodePath(TrimNetpathStart(location)));
-                        if (songData.Jacket != null) WriteImage(opts, songData.Jacket);
-                        pl.Songs.Add(songData);
-                    }
-                    else
-                    {
-                        var songData = new SongData();
-                        if (!track.TryGetString("Name", out string? name))
-                        {
-                            Console.WriteLine($"Warning: Missing name on track {v}");
-                            name = $"??? (ID {v})";
-                        }
-
-                        songData.Name = name;
-                        Console.WriteLine($"Warning: Missing location on track \"{name}\"");
-                        if (track.TryGetString("Album", out string? album))
-                            songData.Album = album;
-
-                        string? artist;
-                        if (track.TryGetString("Artist", out artist))
-                            goto artistDone;
-                        if (track.TryGetString("Album Artist", out artist))
-                            goto artistDone;
-                        artist = null;
-                        artistDone:
-                        songData.Artist = artist;
-                        pl.Songs.Add(songData);
-                    }
-                }
-            }
-
-            MakeDirsForFile(opts.OutFile);
+            Directory.CreateDirectory(Path.GetDirectoryName(opts.OutFile)!);
             using FileStream fs = File.Create(opts.OutFile);
             JsonSerializer.Serialize(new Utf8JsonWriter(fs, s_jwo), pl, s_jso);
         }
+    }
 
-        private static readonly Regex _pathRegex = new(@"(%[A-Za-z\d]{2})+");
 
-        private static string DecodePath(string path) =>
-            _pathRegex.Replace(path, match => HttpUtility.UrlDecode(match.Value));
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
+    internal class Options
+    {
+        [Value(0,
+            MetaName = "libraryPath",
+            MetaValue = "path",
+            HelpText = "Path to iTunes library.",
+            Required = true)]
+        public string LibraryPath { get; set; } = null!;
 
-        private static string TrimNetpathStart(string path)
+        [Value(1,
+            MetaName = "playlist",
+            MetaValue = "name",
+            HelpText = "Playlist to extract.",
+            Required = true)]
+        public string Playlist { get; set; } = null!;
+
+        [Value(2,
+            MetaName = "outFile",
+            MetaValue = "path",
+            HelpText = "Output file.",
+            Required = true)]
+        public string OutFile { get; set; } = null!;
+
+        [Option('j', "jacketFolder",
+            MetaValue = "path",
+            HelpText = "Output directory for jackets.")]
+        public string? JacketFolder { get; set; } = null!;
+
+        [Option('l', "losslessJacket",
+            HelpText = "Output lossless jackets.")]
+        public bool LosslessJackets { get; set; }
+
+        // ReSharper disable once UnusedMember.Local
+        [Usage] public static Example[] Examples => s_examples;
+
+        private static readonly Example[] s_examples =
         {
-            const string lhs = "file://localhost/";
-            return path.StartsWith(lhs) ? path[lhs.Length..] : path;
-        }
-
-        private static void WriteImage(Options opts, JacketInfo jacket)
-        {
-            if (opts.JacketFolder == null) return;
-            string file = Path.Combine(opts.JacketFolder, jacket.Sha1);
-            if (opts.LosslessJackets)
+            new("Export playlist", new Options
             {
-                EncodeLossless(jacket, file);
-            }
-            else
-            {
-                switch (jacket.Extension)
-                {
-                    case ".png":
-                        EncodeLossless(jacket, file);
-                        break;
-                    case "":
-                        {
-                            using var img = Image.Load(jacket.Value, out var format);
-                            if (format is JpegFormat) Save(jacket with {Extension = ".jpg"}, file);
-                            else EncodeLossless(img, file);
-                            break;
-                        }
-                    default:
-                        Save(jacket, file);
-                        break;
-                }
-            }
-        }
-
-        private static readonly PngEncoder s_pngEncoder = new();
-
-        private static void EncodeLossless(JacketInfo jacket, string file)
-        {
-            file += ".png";
-            if (File.Exists(file)) return;
-            MakeDirsForFile(file);
-            using var img = Image.Load(jacket.Value);
-            img.Save(file, s_pngEncoder);
-        }
-
-        private static void EncodeLossless(Image img, string file)
-        {
-            file += ".png";
-            if (File.Exists(file)) return;
-            MakeDirsForFile(file);
-            img.Save(file, s_pngEncoder);
-        }
-
-        private static void Save(JacketInfo jacket, string file)
-        {
-            file += jacket.Extension;
-            if (File.Exists(file)) return;
-            MakeDirsForFile(file);
-            File.WriteAllBytes(file, jacket.Value);
-        }
-
-        private static void MakeDirsForFile(string file) => Directory.CreateDirectory(Path.GetDirectoryName(file)!);
+                LibraryPath = @"<libraryPath>", Playlist = "<playlist>", OutFile = "<outFile>"
+            })
+        };
     }
 }
