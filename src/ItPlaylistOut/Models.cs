@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace ItPlaylistOut
 {
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
     internal class PlaylistData
     {
         public string Name { get; set; } = null!;
