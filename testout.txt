@@ -1,0 +1,1136 @@
+{
+  "Name": "A Sacred Icon",
+  "Songs": [
+    {
+      "Name": "Rockman3 title Remix[ROCKMAN3/TITLE]",
+      "Album": "Mega Music Mix [Disc 2]",
+      "Artist": "taiki"
+    },
+    {
+      "Name": "\u865A\u7A7A\u306E\u5922",
+      "Album": "Arcaea Sound Collection - Memories of Light",
+      "Artist": "ak\u002Bq feat. Sennzai",
+      "Provider": "CD Rip",
+      "JacketSha1": "E8CE2310E88E5C52F6C9A2665A162E5B1F348ABC"
+    },
+    {
+      "Name": "Axium Crisis",
+      "Album": "Arcaea Sound Collection - Memories of Conflict",
+      "Artist": "Ak\u002BQ",
+      "Provider": "CD Rip",
+      "JacketSha1": "F8A638C356D3D6CE119FEDFFF0AB1EB126F76E24"
+    },
+    {
+      "Name": "Ignotus (Extended ver.)",
+      "Album": "Arcaea Sound Collection - Memories of Conflict",
+      "Artist": "Ak\u002BQ",
+      "Provider": "CD Rip",
+      "JacketSha1": "F8A638C356D3D6CE119FEDFFF0AB1EB126F76E24"
+    },
+    {
+      "Name": "Grievous Lady -nothing is but what is not-",
+      "Album": "Arcaea Sound Collection - Memories of Conflict",
+      "Artist": "Team Grimoire vs Laur",
+      "Provider": "CD Rip",
+      "JacketSha1": "F8A638C356D3D6CE119FEDFFF0AB1EB126F76E24"
+    },
+    {
+      "Name": "Arcahv",
+      "Album": "Arcahv",
+      "Artist": "Feryquitous",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/579434",
+      "JacketSha1": "8C720B26A01E0C613F98B1BC51A6128DD3D680BF"
+    },
+    {
+      "Name": "Dstorv -LongEdit- (feat. Sennzai)",
+      "Album": "Dstorv",
+      "Artist": "Feryquitous, Sennzai",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/507466",
+      "JacketSha1": "9F6E4BDD6E07460B9B0FA9F870341838011FFA9A"
+    },
+    {
+      "Name": "\u65CB\u98A8 -tsumujikaze-",
+      "Album": "Iroha",
+      "Artist": "Street",
+      "Provider": "CD Rip",
+      "JacketSha1": "F2C2C411529ABE90D0946DC5C372C44A57E9E706"
+    },
+    {
+      "Name": "\u7EB5\u6B65 -z\u00F2ngb\u00F9-",
+      "Album": "\u6D77\u91CC",
+      "Artist": "Street",
+      "Provider": "Bandcamp",
+      "Link": "http://streetofficial.bandcamp.com",
+      "JacketSha1": "A51072349B1E811D35BACA86B81A47CF13A3DBF3"
+    },
+    {
+      "Name": "Sakura Fubuki",
+      "Album": "Sakura Fubuki - Single",
+      "Artist": "Street"
+    },
+    {
+      "Name": "Yukikaze",
+      "Album": "Lio Sazer",
+      "Artist": "Street",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/52793",
+      "JacketSha1": "D769B50CE1225729CF6E47AE6B97B3E8EA5692F2"
+    },
+    {
+      "Name": "I am a hero!",
+      "Artist": "Street",
+      "Provider": "Bandcamp",
+      "Link": "https://streetofficial.bandcamp.com",
+      "JacketSha1": "5BC45DECE0B313371FA838E01C99171B98AA12EB"
+    },
+    {
+      "Name": "chronos_visionia",
+      "Album": "V\u00E9l",
+      "Artist": "ak\u002Bq"
+    },
+    {
+      "Name": "Reprologue",
+      "Album": "Last Dance",
+      "Artist": "sakuzyo"
+    },
+    {
+      "Name": "Armageddon",
+      "Artist": "LeaF"
+    },
+    {
+      "Name": "Flame of Nuclear",
+      "Artist": "maritumix"
+    },
+    {
+      "Name": "Cyaegha (Extended Mix)",
+      "Album": "XTREME",
+      "Artist": "USAO",
+      "Provider": "Bandcamp",
+      "Link": "https://usao.bandcamp.com",
+      "JacketSha1": "59BB273F5F128EB71483C704E5EC14B063BD81EF"
+    },
+    {
+      "Name": "Knight Rider (Extended Mix)",
+      "Album": "XTREME",
+      "Artist": "USAO",
+      "Provider": "Bandcamp",
+      "Link": "https://usao.bandcamp.com",
+      "JacketSha1": "59BB273F5F128EB71483C704E5EC14B063BD81EF"
+    },
+    {
+      "Name": "\u6700\u5F37STRONGER (Extended Mix)",
+      "Album": "XTREME",
+      "Artist": "REDALiCE vs USAO",
+      "Provider": "Bandcamp",
+      "Link": "https://usao.bandcamp.com",
+      "JacketSha1": "59BB273F5F128EB71483C704E5EC14B063BD81EF"
+    },
+    {
+      "Name": "Climax (Extended Mix)",
+      "Album": "XTREME",
+      "Artist": "USAO",
+      "Provider": "Bandcamp",
+      "Link": "https://usao.bandcamp.com",
+      "JacketSha1": "59BB273F5F128EB71483C704E5EC14B063BD81EF"
+    },
+    {
+      "Name": "XTREME (Extended Mix)",
+      "Album": "XTREME",
+      "Artist": "USAO",
+      "Provider": "Bandcamp",
+      "Link": "https://usao.bandcamp.com",
+      "JacketSha1": "59BB273F5F128EB71483C704E5EC14B063BD81EF"
+    },
+    {
+      "Name": "Knight Rider (Camellia\u0027s Knightstyle Razor-psy-harp Remix)",
+      "Album": "XTREME",
+      "Artist": "Camellia",
+      "Provider": "Bandcamp",
+      "Link": "https://usao.bandcamp.com",
+      "JacketSha1": "59BB273F5F128EB71483C704E5EC14B063BD81EF"
+    },
+    {
+      "Name": "Climax (Kobaryo\u0027s FTN-Remix)",
+      "Album": "XTREME",
+      "Artist": "Kobaryo",
+      "Provider": "Bandcamp",
+      "Link": "https://usao.bandcamp.com",
+      "JacketSha1": "59BB273F5F128EB71483C704E5EC14B063BD81EF"
+    },
+    {
+      "Name": "\u862D",
+      "Album": "AD:PIANO VIVACE",
+      "Artist": "Feryquitous",
+      "Provider": "CD Rip",
+      "JacketSha1": "1FC19CC881EBC5E49583F99BFDDE085F10FBA4DE"
+    },
+    {
+      "Name": "Nobodyknows Eden",
+      "Album": "AD:PIANO VIVACE",
+      "Artist": "BlackY",
+      "Provider": "CD Rip",
+      "JacketSha1": "1FC19CC881EBC5E49583F99BFDDE085F10FBA4DE"
+    },
+    {
+      "Name": "City Cycle",
+      "Album": "AD:PIANO VIVACE",
+      "Artist": "Tigerlily",
+      "Provider": "CD Rip",
+      "JacketSha1": "1FC19CC881EBC5E49583F99BFDDE085F10FBA4DE"
+    },
+    {
+      "Name": "Irreversibly",
+      "Album": "AD:PIANO VIVACE",
+      "Artist": "Mow",
+      "Provider": "CD Rip",
+      "JacketSha1": "1FC19CC881EBC5E49583F99BFDDE085F10FBA4DE"
+    },
+    {
+      "Name": "Brise Voyage",
+      "Album": "AD:PIANO VIVACE",
+      "Artist": "\u30CF\u30E0",
+      "Provider": "CD Rip",
+      "JacketSha1": "1FC19CC881EBC5E49583F99BFDDE085F10FBA4DE"
+    },
+    {
+      "Name": "Noir Specular",
+      "Album": "AD:PIANO V Noir[DISC-01]",
+      "Artist": "Feryquitous Vo. \u85CD\u6708\u306A\u304F\u308B",
+      "Provider": "CD Rip",
+      "JacketSha1": "746E8F139E26826BABD7B0618608448393795F1E"
+    },
+    {
+      "Name": "\u4E5D\u5929\u4E16\u754C\u306E\u5C11\u5E74",
+      "Album": "AD:PIANO V Noir[DISC-01]",
+      "Artist": "\u5357\u3086\u306B",
+      "Provider": "CD Rip",
+      "JacketSha1": "746E8F139E26826BABD7B0618608448393795F1E"
+    },
+    {
+      "Name": "Pandora\u0027s Box",
+      "Album": "AD:PIANO V Noir[DISC-01]",
+      "Artist": "Ice",
+      "Provider": "CD Rip",
+      "JacketSha1": "746E8F139E26826BABD7B0618608448393795F1E"
+    },
+    {
+      "Name": "Downburst",
+      "Album": "AD:PIANO V Noir[DISC-01]",
+      "Artist": "BlackY",
+      "Provider": "CD Rip",
+      "JacketSha1": "746E8F139E26826BABD7B0618608448393795F1E"
+    },
+    {
+      "Name": "Lamplight of soul",
+      "Album": "AD:PIANO V Noir[DISC-01]",
+      "Artist": "nay",
+      "Provider": "CD Rip",
+      "JacketSha1": "746E8F139E26826BABD7B0618608448393795F1E"
+    },
+    {
+      "Name": "Re;in",
+      "Album": "AD:PIANO VI Punishment [Disc 1]",
+      "Artist": "Feryquitous Vo. \u30EB\u30B7\u30E5\u30AB",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "\u30B9\u30D3\u30EB\u30FC\u306E\u5FC3\u81D3",
+      "Album": "AD:PIANO VI Punishment [Disc 1]",
+      "Artist": "\u5357\u3086\u306B",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "Soaring",
+      "Album": "AD:PIANO VI Punishment [Disc 1]",
+      "Artist": "Jerico",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "Discovered Attack",
+      "Album": "AD:PIANO VI Punishment [Disc 1]",
+      "Artist": "BlackY",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "Ambitious",
+      "Album": "AD:PIANO VI Punishment [Disc 1]",
+      "Artist": "Lapix",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "Frosty Leaves",
+      "Album": "AD:PIANO VI Punishment [Disc 1]",
+      "Artist": "\u304B\u306D\u3053\u3061\u306F\u308B",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "NESCITUR IGNESCITUR",
+      "Album": "AD:PIANO VI Punishment [Disc 1]",
+      "Artist": "Ice",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "Butterfly Falls",
+      "Album": "AD:PIANO VI Punishment [Disc 2]",
+      "Artist": "sky_delta",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "We doubt you",
+      "Album": "AD:PIANO VI Punishment [Disc 2]",
+      "Artist": "Sobrem",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "\u8DB3\u97F3\u3068\u6B8B\u97FF",
+      "Album": "AD:PIANO VI Punishment [Disc 2]",
+      "Artist": "b/bq\u30B9\u30BF\u30C2\u30AA",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "Nier Monochrome",
+      "Album": "AD:PIANO VI Punishment [Disc 2]",
+      "Artist": "\u85CD\u6708\u306A\u304F\u308B",
+      "Provider": "CD Rip",
+      "JacketSha1": "271D7D64620A5BC4C63D1363DEF247AF9F61EDAD"
+    },
+    {
+      "Name": "Raven",
+      "Album": "Driven\u0027 De:st-ructure 10 [Disc 1]",
+      "Artist": "Soleily",
+      "Provider": "CD Rip",
+      "JacketSha1": "BE20A8A950A064DBE22CA150D62BE2D04CEC9B1E"
+    },
+    {
+      "Name": "Gale",
+      "Album": "Driven\u0027 De:st-ructure 10 [Disc 1]",
+      "Artist": "Tanchiky",
+      "Provider": "CD Rip",
+      "JacketSha1": "BE20A8A950A064DBE22CA150D62BE2D04CEC9B1E"
+    },
+    {
+      "Name": "Algorizm",
+      "Album": "Driven\u0027 De:st-ructure 10 [Disc 1]",
+      "Artist": "Feryquitous",
+      "Provider": "CD Rip",
+      "JacketSha1": "BE20A8A950A064DBE22CA150D62BE2D04CEC9B1E"
+    },
+    {
+      "Name": "escape from everything",
+      "Album": "Driven\u0027 De:st-ructure 10 [Disc 1]",
+      "Artist": "Blacklolita",
+      "Provider": "CD Rip",
+      "JacketSha1": "BE20A8A950A064DBE22CA150D62BE2D04CEC9B1E"
+    },
+    {
+      "Name": "Inverted World",
+      "Album": "Driven\u0027 De:st-ructure 10 [Disc 1]",
+      "Artist": "Street",
+      "Provider": "CD Rip",
+      "JacketSha1": "BE20A8A950A064DBE22CA150D62BE2D04CEC9B1E"
+    },
+    {
+      "Name": "Flashbang",
+      "Album": "Driven\u0027 De:st-ructure 10 [Disc 1]",
+      "Artist": "A-Fang",
+      "Provider": "CD Rip",
+      "JacketSha1": "BE20A8A950A064DBE22CA150D62BE2D04CEC9B1E"
+    },
+    {
+      "Name": "Close to you",
+      "Album": "Driven\u0027 De:st-ructure 10 [Disc 2]",
+      "Artist": "Polysha",
+      "Provider": "CD Rip",
+      "JacketSha1": "BE20A8A950A064DBE22CA150D62BE2D04CEC9B1E"
+    },
+    {
+      "Name": "Bipolar",
+      "Album": "Driven\u0027 De:st-ructure 10 [Disc 2]",
+      "Artist": "Mameyudoufu",
+      "Provider": "CD Rip",
+      "JacketSha1": "BE20A8A950A064DBE22CA150D62BE2D04CEC9B1E"
+    },
+    {
+      "Name": "The eve of epokhe",
+      "Album": "AD:PIANO ff/pp",
+      "Artist": "Alice Schach and the Magic Orchestra",
+      "Provider": "CD Rip",
+      "JacketSha1": "77C427034218721B30A0636E42618AEFE6A79E34"
+    },
+    {
+      "Name": "For(n)tarv",
+      "Album": "AD:PIANO ff/pp",
+      "Artist": "Feryquitous",
+      "Provider": "CD Rip",
+      "JacketSha1": "77C427034218721B30A0636E42618AEFE6A79E34"
+    },
+    {
+      "Name": "THE PIANO",
+      "Album": "AD:PIANO ff/pp",
+      "Artist": "Feryquitous",
+      "Provider": "CD Rip",
+      "JacketSha1": "77C427034218721B30A0636E42618AEFE6A79E34"
+    },
+    {
+      "Name": "Ego hena von merci.",
+      "Album": "AD:PIANO ff/pp",
+      "Artist": "Spiegel vs Yukino",
+      "Provider": "CD Rip",
+      "JacketSha1": "77C427034218721B30A0636E42618AEFE6A79E34"
+    },
+    {
+      "Name": "Define",
+      "Album": "Stream Palette",
+      "Artist": "Zekk",
+      "Provider": "CD Rip",
+      "JacketSha1": "D81557D1B2CBDF47179D1406B61D018C8B6C19A5"
+    },
+    {
+      "Name": "Aim",
+      "Album": "Stream Palette",
+      "Artist": "Feryquitous",
+      "Provider": "CD Rip",
+      "JacketSha1": "D81557D1B2CBDF47179D1406B61D018C8B6C19A5"
+    },
+    {
+      "Name": "thouwertmachinery",
+      "Album": "CodeQ",
+      "Artist": "\u68D7\u3044\u3064\u304D",
+      "Provider": "CD Rip",
+      "JacketSha1": "B3D2118DD4972BD026E67A22AEA13C8A440FCD97"
+    },
+    {
+      "Name": "Lev0",
+      "Album": "CodeQ",
+      "Artist": "\u68D7\u3044\u3064\u304D",
+      "Provider": "CD Rip",
+      "JacketSha1": "B3D2118DD4972BD026E67A22AEA13C8A440FCD97"
+    },
+    {
+      "Name": "\u8584\u660E\u306B\u6483\u3064",
+      "Album": "CodeQ",
+      "Artist": "\u68D7\u3044\u3064\u304D",
+      "Provider": "CD Rip",
+      "JacketSha1": "B3D2118DD4972BD026E67A22AEA13C8A440FCD97"
+    },
+    {
+      "Name": "\u30E1\u30FC\u30C7\u30FC",
+      "Album": "CodeQ",
+      "Artist": "\u68D7\u3044\u3064\u304D",
+      "Provider": "CD Rip",
+      "JacketSha1": "B3D2118DD4972BD026E67A22AEA13C8A440FCD97"
+    },
+    {
+      "Name": "Miniascape",
+      "Album": "CodeQ",
+      "Artist": "\u68D7\u3044\u3064\u304D",
+      "Provider": "CD Rip",
+      "JacketSha1": "B3D2118DD4972BD026E67A22AEA13C8A440FCD97"
+    },
+    {
+      "Name": "AI\u3068CodeQ\u306E\u679C\u3066",
+      "Album": "CodeQ",
+      "Artist": "\u68D7\u3044\u3064\u304D",
+      "Provider": "CD Rip",
+      "JacketSha1": "B3D2118DD4972BD026E67A22AEA13C8A440FCD97"
+    },
+    {
+      "Name": "O\u0027 apricity.",
+      "Album": "CodeQ",
+      "Artist": "\u68D7\u3044\u3064\u304D",
+      "Provider": "CD Rip",
+      "JacketSha1": "B3D2118DD4972BD026E67A22AEA13C8A440FCD97"
+    },
+    {
+      "Name": "Oxydlate",
+      "Album": "Transpain",
+      "Artist": "\u85CD\u6708\u306A\u304F\u308B",
+      "Provider": "CD Rip",
+      "JacketSha1": "18298A85E38010225C85FFE6DA32C138165279AF"
+    },
+    {
+      "Name": "mirror",
+      "Album": "Transpain",
+      "Artist": "\u85CD\u6708\u306A\u304F\u308B",
+      "Provider": "CD Rip",
+      "JacketSha1": "18298A85E38010225C85FFE6DA32C138165279AF"
+    },
+    {
+      "Name": "Evil Bubble",
+      "Album": "Transpain",
+      "Artist": "\u85CD\u6708\u306A\u304F\u308B",
+      "Provider": "CD Rip",
+      "JacketSha1": "18298A85E38010225C85FFE6DA32C138165279AF"
+    },
+    {
+      "Name": "Transpain",
+      "Album": "Transpain",
+      "Artist": "\u85CD\u6708\u306A\u304F\u308B",
+      "Provider": "CD Rip",
+      "JacketSha1": "18298A85E38010225C85FFE6DA32C138165279AF"
+    },
+    {
+      "Name": "03 Fallin\u0027",
+      "Album": "LIBEREX",
+      "Artist": "K. Forest",
+      "Provider": "CD Rip",
+      "JacketSha1": "15628D69AF0D27986F7E33E2B234C39ACF2B73EF"
+    },
+    {
+      "Name": "11 Go",
+      "Album": "LIBEREX",
+      "Artist": "GohanGakari",
+      "Provider": "CD Rip",
+      "JacketSha1": "15628D69AF0D27986F7E33E2B234C39ACF2B73EF"
+    },
+    {
+      "Name": "12 Memories",
+      "Album": "LIBEREX",
+      "Artist": "\u3074!/pi",
+      "Provider": "CD Rip",
+      "JacketSha1": "15628D69AF0D27986F7E33E2B234C39ACF2B73EF"
+    },
+    {
+      "Name": "13 My Blessing",
+      "Album": "LIBEREX",
+      "Artist": "UK",
+      "Provider": "CD Rip",
+      "JacketSha1": "15628D69AF0D27986F7E33E2B234C39ACF2B73EF"
+    },
+    {
+      "Name": "15 DiGiLOG",
+      "Album": "LIBEREX",
+      "Artist": "Catsprite feat. L4hee",
+      "Provider": "CD Rip",
+      "JacketSha1": "15628D69AF0D27986F7E33E2B234C39ACF2B73EF"
+    },
+    {
+      "Name": "Till the End of Blooming",
+      "Album": "\u83EF -KAI-",
+      "Artist": "Polysha",
+      "Provider": "CD Rip",
+      "JacketSha1": "AD09C0A0AA4FF71570674724E139C9C98EC89662"
+    },
+    {
+      "Name": "\u5343\u9CE5\u8DB3",
+      "Album": "\u83EF -KAI-",
+      "Artist": "Street",
+      "Provider": "CD Rip",
+      "JacketSha1": "AD09C0A0AA4FF71570674724E139C9C98EC89662"
+    },
+    {
+      "Name": "Momoka",
+      "Album": "\u83EF -KAI-",
+      "Artist": "Shion Hinano",
+      "Provider": "CD Rip",
+      "JacketSha1": "AD09C0A0AA4FF71570674724E139C9C98EC89662"
+    },
+    {
+      "Name": "\u30EA\u30CD\u30FC\u30B8",
+      "Album": "\u83EF -KAI-",
+      "Artist": "Dachs",
+      "Provider": "CD Rip",
+      "JacketSha1": "AD09C0A0AA4FF71570674724E139C9C98EC89662"
+    },
+    {
+      "Name": "\u3044\u308D\u306F\u4E03\u4E0D\u601D\u8B70\u63A2\u8A2A\u8A18",
+      "Album": "\u3044\u308D\u306F\u4E03\u4E0D\u601D\u8B70\u63A2\u8A2A\u8A18",
+      "Artist": "\u304B\u3081\u308A\u3042",
+      "Provider": "CD Rip",
+      "JacketSha1": "4D4ECFAF9E7A60E9D596A86561CC6932E1711E43"
+    },
+    {
+      "Name": "\u308F\u3089\u3057\u3055\u3093\u306E\u65E5\u5E38",
+      "Album": "\u3044\u308D\u306F\u4E03\u4E0D\u601D\u8B70\u63A2\u8A2A\u8A18",
+      "Artist": "\u9ED2\u9B54",
+      "Provider": "CD Rip",
+      "JacketSha1": "4D4ECFAF9E7A60E9D596A86561CC6932E1711E43"
+    },
+    {
+      "Name": "\u4E59\u5973\u524D\u7DDA!\u3044\u3056\u5909\u5316\u2606",
+      "Album": "\u3044\u308D\u306F\u4E03\u4E0D\u601D\u8B70\u63A2\u8A2A\u8A18",
+      "Artist": "\u307E\u3081\u3053/\u585A\u8D8A\u96C4\u4E00",
+      "Provider": "CD Rip",
+      "JacketSha1": "4D4ECFAF9E7A60E9D596A86561CC6932E1711E43"
+    },
+    {
+      "Name": "\u3053\u308C\u306F\u7121\u6148\u60B2\u306A\u82B1\u306E\u5973\u738B",
+      "Album": "\u3044\u308D\u306F\u4E03\u4E0D\u601D\u8B70\u63A2\u8A2A\u8A18",
+      "Artist": "\u5E38\u8449\u5186/iroha",
+      "Provider": "CD Rip",
+      "JacketSha1": "4D4ECFAF9E7A60E9D596A86561CC6932E1711E43"
+    },
+    {
+      "Name": "\u5728\u3089\u305A\u6731\u8272\u3068\u8FF7\u3044\u8DEF\u306E\u5922",
+      "Album": "\u3044\u308D\u306F\u4E03\u4E0D\u601D\u8B70\u63A2\u8A2A\u8A18",
+      "Artist": "\u304B\u3081\u308A\u3042",
+      "Provider": "CD Rip",
+      "JacketSha1": "4D4ECFAF9E7A60E9D596A86561CC6932E1711E43"
+    },
+    {
+      "Name": "\u8A60\u30DF\u4EBA\u77E5\u30E9\u30BA // \u884C\u65B9\u30CF\u77E5\u30EC\u30BA",
+      "Album": "\u3044\u308D\u306F\u4E03\u4E0D\u601D\u8B70\u63A2\u8A2A\u8A18",
+      "Artist": "t\u002Bpazolite",
+      "Provider": "CD Rip",
+      "JacketSha1": "4D4ECFAF9E7A60E9D596A86561CC6932E1711E43"
+    },
+    {
+      "Name": "TBA",
+      "Album": "Waves of Euphoria 1.5",
+      "Artist": "Various artists",
+      "Provider": "CD Rip",
+      "JacketSha1": "53A2213E2E9584A0498B8C0BD0C5247BAC3634BD"
+    },
+    {
+      "Name": "Feather",
+      "Album": "Waves of Euphoria 1.5",
+      "Artist": "Nhato",
+      "Provider": "CD Rip",
+      "JacketSha1": "53A2213E2E9584A0498B8C0BD0C5247BAC3634BD"
+    },
+    {
+      "Name": "\u30A2\u30F3\u30C0\u30FC\u30DE\u30EA\u30F3",
+      "Album": "\u30E2\u30CE\u30ED\u30FC\u30B0\u30FB\u30AA\u30D5",
+      "Artist": "Endorfin.",
+      "Provider": "CD Rip",
+      "JacketSha1": "9907D2D15339365C553AC6C4BC8FFBA7061992E2"
+    },
+    {
+      "Name": "Round \u0026 Round",
+      "Album": "\u30E2\u30CE\u30ED\u30FC\u30B0\u30FB\u30AA\u30D5",
+      "Artist": "Endorfin.",
+      "Provider": "CD Rip",
+      "JacketSha1": "9907D2D15339365C553AC6C4BC8FFBA7061992E2"
+    },
+    {
+      "Name": "\u60D1\u661F\u30C8\u30EA\u30C3\u30D7",
+      "Album": "\u30E2\u30CE\u30ED\u30FC\u30B0\u30FB\u30AA\u30D5",
+      "Artist": "Endorfin.",
+      "Provider": "CD Rip",
+      "JacketSha1": "9907D2D15339365C553AC6C4BC8FFBA7061992E2"
+    },
+    {
+      "Name": "Alice\u0027s Suitcase",
+      "Album": "\u30E2\u30CE\u30ED\u30FC\u30B0\u30FB\u30AA\u30D5",
+      "Artist": "Endorfin.",
+      "Provider": "CD Rip",
+      "JacketSha1": "9907D2D15339365C553AC6C4BC8FFBA7061992E2"
+    },
+    {
+      "Name": "\u30E2\u30CE\u30ED\u30FC\u30B0\u30FB\u30AA\u30D5",
+      "Album": "\u30E2\u30CE\u30ED\u30FC\u30B0\u30FB\u30AA\u30D5",
+      "Artist": "Endorfin.",
+      "Provider": "CD Rip",
+      "JacketSha1": "9907D2D15339365C553AC6C4BC8FFBA7061992E2"
+    },
+    {
+      "Name": "RESIST",
+      "Album": "RESIST",
+      "Artist": "Kotone",
+      "Provider": "CD Rip",
+      "JacketSha1": "31D935811D88DC4B0A0254D83F391D3548636DE7"
+    },
+    {
+      "Name": "Autonomy",
+      "Album": "Autonomy",
+      "Artist": "Kotone",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/735276",
+      "JacketSha1": "EB518487CF47018C4384BABFE5B3A7B534FDD0D5"
+    },
+    {
+      "Name": "\u30ED\u30B9\u30C8\u30A2\u30F3\u30D6\u30EC\u30E9",
+      "Album": "\u30A2\u30F3\u30C1\u30B5\u30A4\u30AF\u30ED\u30F3",
+      "Artist": "\u7A32\u8449\u66C7",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/632232:lyricist=\u7A32\u8449\u66C7",
+      "JacketSha1": "9DD4FBD6EAE16AE5100F89018FC7D28BAC06C44F"
+    },
+    {
+      "Name": "\u30CE\u30F3\u30E6\u30FC\u30B9",
+      "Album": "\u30A2\u30F3\u30C1\u30B5\u30A4\u30AF\u30ED\u30F3",
+      "Artist": "\u7A32\u8449\u66C7",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/632232:lyricist=\u7A32\u8449\u66C7",
+      "JacketSha1": "9DD4FBD6EAE16AE5100F89018FC7D28BAC06C44F"
+    },
+    {
+      "Name": "\u3072\u307F\u3064\u306E\u5C0F\u5B66\u751F",
+      "Album": "\u3072\u307F\u3064\u306E\u5C0F\u5B66\u751F",
+      "Artist": "\u7A32\u8449\u66C7",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/589823:lyricist=\u7A32\u8449\u66C7",
+      "JacketSha1": "5B9B6D5F369A2EEE1EBFA154D007E00403D38DA6"
+    },
+    {
+      "Name": "\u30E9\u30B0\u30C8\u30EC\u30A4\u30F3",
+      "Album": "\u30E9\u30B0\u30C8\u30EC\u30A4\u30F3 - Single",
+      "Artist": "Inabakumori"
+    },
+    {
+      "Name": "\u30EC\u30A4\u30CB\u30FC\u30D6\u30FC\u30C4",
+      "Album": "\u30EC\u30A4\u30CB\u30FC\u30D6\u30FC\u30C4",
+      "Artist": "\u7A32\u8449\u66C7",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/791773",
+      "JacketSha1": "DEF1FF98CB2C8CACE0011E2F65BCE2B6483E8452"
+    },
+    {
+      "Name": "My Story feat.\u67DA\u5B50\u82B1",
+      "Album": "Decoration.",
+      "Artist": "KOTONOHOUSE",
+      "Provider": "CD Rip",
+      "JacketSha1": "1FACA99F482939BA4A7CDCF5DD6D2A055919BFC3"
+    },
+    {
+      "Name": "\u9B54\u6CD5\u5C11\u5973\u5F15\u9000\u5BA3\u8A00(\u4EEE)feat.\u661F\u5BAE\u3068\u3068",
+      "Album": "Decoration.",
+      "Artist": "Kijibato",
+      "Provider": "CD Rip",
+      "JacketSha1": "1FACA99F482939BA4A7CDCF5DD6D2A055919BFC3"
+    },
+    {
+      "Name": "\u30EA\u30CA\u30EA\u30A2\u3068\u30C6\u30EC\u30D1\u30B7\u30FC feat.Such",
+      "Album": "Decoration.",
+      "Artist": "yuigot",
+      "Provider": "CD Rip",
+      "JacketSha1": "1FACA99F482939BA4A7CDCF5DD6D2A055919BFC3"
+    },
+    {
+      "Name": "My Story feat.\u67DA\u5B50\u82B1\uFF08yoswu Remix)",
+      "Album": "Decoration. (Remixes)",
+      "Artist": "KOTONOHOUSE \u0026 yoswu"
+    },
+    {
+      "Name": "\u9B54\u6CD5\u5C11\u5973\u5F15\u9000\u5BA3\u8A00\uFF08\u4EEE\uFF09 feat.\u661F\u5BAE\u3068\u3068 \uFF08Mtell Remix\uFF09",
+      "Album": "Decoration. (Remixes)",
+      "Artist": "Kijibato \u0026 Mtell"
+    },
+    {
+      "Name": "Mone-archy (feat.\u30E2\u30CD)\t",
+      "Album": "Fortune.",
+      "Artist": "Kijibato",
+      "Provider": "CD Rip",
+      "JacketSha1": "5C91C650C3FBCAEC4028A8900BB0E52DF423B587"
+    },
+    {
+      "Name": "Rays feat. \u661F\u5BAE\u3068\u3068 (Extended ver.)",
+      "Album": "Fortune. [\u7279\u5178]",
+      "Artist": "tokiwa"
+    },
+    {
+      "Name": "Luminous feat. \u7D21\u97F3\u308C\u3044  (Extended ver.)",
+      "Album": "Fortune. [\u7279\u5178]",
+      "Artist": "Dotnoi \u0026 Tom-i"
+    },
+    {
+      "Name": "full of spells (feat.Such)\t",
+      "Album": "Fortune.",
+      "Artist": "kamome sano",
+      "Provider": "CD Rip",
+      "JacketSha1": "5C91C650C3FBCAEC4028A8900BB0E52DF423B587"
+    },
+    {
+      "Name": "Reincarnation (feat. \u306A\u306A\u3072\u3089)\t",
+      "Album": "Fortune.",
+      "Artist": "KOTONOHOUSE",
+      "Provider": "CD Rip",
+      "JacketSha1": "5C91C650C3FBCAEC4028A8900BB0E52DF423B587"
+    },
+    {
+      "Name": "one way love (feat.\u67DA\u5B50\u82B1)\t",
+      "Album": "Fortune.",
+      "Artist": "TEMPLIME",
+      "Provider": "CD Rip",
+      "JacketSha1": "5C91C650C3FBCAEC4028A8900BB0E52DF423B587"
+    },
+    {
+      "Name": "Can\u0027t Stop Me feat. TEA (Extended ver.)",
+      "Album": "Fortune. [\u7279\u5178]",
+      "Artist": "Mameyudoufu"
+    },
+    {
+      "Name": "\u6708\u5F71\u30DF\u30C3\u30C9\u30CA\u30A4\u30C8 feat.\u5F0F\u90E8\u3081\u3050\u308A (Extended ver.)",
+      "Album": "Fortune. [\u7279\u5178]",
+      "Artist": "picco"
+    },
+    {
+      "Name": "\u307E\u307B\u3046\u306E\u3046\u305F (feat.\u7114\u9B54\u308B\u308A)\t",
+      "Album": "Fortune.",
+      "Artist": "cyan smail",
+      "Provider": "CD Rip",
+      "JacketSha1": "5C91C650C3FBCAEC4028A8900BB0E52DF423B587"
+    },
+    {
+      "Name": "Luminous(RYOQUCHA Remix)",
+      "Album": "Fortune. [\u7279\u5178]",
+      "Artist": "Dotnoi \u0026 Tom-i"
+    },
+    {
+      "Name": "full of spells (S2i8 Remix)",
+      "Album": "Fortune. [\u7279\u5178]",
+      "Artist": "kamome sano"
+    },
+    {
+      "Name": "I Don\u0027t Care (feat. \u306A\u306A\u3072\u3089)",
+      "Album": "Isekai Travel",
+      "Artist": "Neko Hacker, \u306A\u306A\u3072\u3089",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/629032",
+      "JacketSha1": "986ED961116B9F50751B38C483B9428122066F75"
+    },
+    {
+      "Name": "Fly High (feat. mochari)",
+      "Album": "Isekai Travel",
+      "Artist": "Neko Hacker, mochari",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/629032",
+      "JacketSha1": "986ED961116B9F50751B38C483B9428122066F75"
+    },
+    {
+      "Name": "Listen (feat. \u3092\u3068\u306F)",
+      "Album": "Isekai Travel",
+      "Artist": "Neko Hacker, \u3092\u3068\u306F",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/629032",
+      "JacketSha1": "986ED961116B9F50751B38C483B9428122066F75"
+    },
+    {
+      "Name": "Isekai Market (feat. \u306A\u306A\u3072\u3089, mochari \u0026 \u3092\u3068\u306F)",
+      "Album": "Isekai Travel",
+      "Artist": "Neko Hacker, \u306A\u306A\u3072\u3089, mochari, \u3092\u3068\u306F",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/629032",
+      "JacketSha1": "986ED961116B9F50751B38C483B9428122066F75"
+    },
+    {
+      "Name": "\u30D9\u30CE\u30E0",
+      "Album": "\u30D9\u30CE\u30E0",
+      "Artist": "\u5929\u7FD4\u9662\u3072\u3044\u306A",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/708670",
+      "JacketSha1": "E8EF1D4F114CDD2D4A4E624B5B5A41778C65C5A8"
+    },
+    {
+      "Name": "Karma",
+      "Album": "Karma - Single",
+      "Artist": "Dareharu"
+    },
+    {
+      "Name": "Bad Apple!! (feat.nomico)",
+      "Album": "\u03BC\u03BF\u03BD\u03B1\u03BE\u03B9\u03AC (feat.nomico)",
+      "Artist": "Alstroemeria Records"
+    },
+    {
+      "Name": "Pallet",
+      "Album": "4th-Peace - EP",
+      "Artist": "Mikanzil \u0026 PSYQUI"
+    },
+    {
+      "Name": "Endroll",
+      "Album": "4th-Peace - EP",
+      "Artist": "Mikanzil \u0026 PSYQUI"
+    },
+    {
+      "Name": "Concentration",
+      "Album": "Your voice so...",
+      "Artist": "PSYQUI"
+    },
+    {
+      "Name": "Multitalents",
+      "Album": "Funky Gabber",
+      "Artist": "PSYQUI"
+    },
+    {
+      "Name": "Vital Error",
+      "Album": "commune310 compilation 2018",
+      "Artist": "PSYQUI",
+      "Provider": "Bandcamp",
+      "Link": "https://commune310.bandcamp.com",
+      "JacketSha1": "14065FC3966C6D20D0933F3F8203CE8D79D1D1B2"
+    },
+    {
+      "Name": "Start Up",
+      "Album": "Your voice so...",
+      "Artist": "PSYQUI feat. Such"
+    },
+    {
+      "Name": "\u30D2\u30B9\u30C6\u30EA\u30C3\u30AF\u30CA\u30A4\u30C8\u30AC\u30FC\u30EB (feat. Such)",
+      "Album": "Styley!",
+      "Artist": "PSYQUI"
+    },
+    {
+      "Name": "Hype (feat. Such)",
+      "Album": "F\u00DCGENE 02",
+      "Artist": "PSYQUI"
+    },
+    {
+      "Name": "Don\u0027t You Want Me (feat. Such)",
+      "Album": "Spd Gar",
+      "Artist": "PSYQUI"
+    },
+    {
+      "Name": "Summers (feat. Such \u0026 \u6765\u6D77)",
+      "Album": "Summers (feat. Such \u0026 \u6765\u6D77)",
+      "Artist": "Len, Such, \u6765\u6D77",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/428727",
+      "JacketSha1": "B84730EBC62BCE08A7A220C5FE64ABEE8B411393"
+    },
+    {
+      "Name": "\u591C\u3001\u541B\u3092\u60F3\u3046 (feat. Such)",
+      "Album": "\u591C\u3001\u541B\u3092\u60F3\u3046 (feat. Such)",
+      "Artist": "Gun, Such",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/557216",
+      "JacketSha1": "CBC21F83359C8C9236EA6EE4E9C42D387006CEE1"
+    },
+    {
+      "Name": "29\u6642\u306F\u30D3\u30D3\u30C3\u30C9",
+      "Album": "29\u6642\u306F\u30D3\u30D3\u30C3\u30C9",
+      "Artist": "\u6C34\u69FD, Such",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/829599",
+      "JacketSha1": "5636A23F648E117D9EECE9ACD4E2E478DDDB4B6A"
+    },
+    {
+      "Name": "Mend Your Ways (feat. Psyqui)",
+      "Album": "Innocent",
+      "Artist": "Such"
+    },
+    {
+      "Name": "Sentimental Heart Boy (feat. Psyqui)",
+      "Album": "Innocent",
+      "Artist": "Such"
+    },
+    {
+      "Name": "Hysteric Night Girl -Awakening- (feat. Such)",
+      "Album": "Innocent",
+      "Artist": "PSYQUI"
+    },
+    {
+      "Name": "Don\u0027t You Want Me (Mameyudoufu Remix) [feat. Such]",
+      "Album": "Innocent",
+      "Artist": "PSYQUI"
+    },
+    {
+      "Name": "LOVE\u0026ROLL",
+      "Album": "Innocent",
+      "Artist": "Such"
+    },
+    {
+      "Name": "Dr. (feat. such)",
+      "Album": "Dr. (feat. such)",
+      "Artist": "Len, such",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/742225",
+      "JacketSha1": "CB741F031970FD73D230B7C6D466708C89FA55EA"
+    },
+    {
+      "Name": "Mirror Mirror (feat. Such)",
+      "Album": "Synchronicity",
+      "Artist": "KOTONOHOUSE, Such",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/624324",
+      "JacketSha1": "CA2C4FD14C869D05DE48D1F48902D844CF6A2232"
+    },
+    {
+      "Name": "PSYQUI - Your voice so... feat. Such (M-Project Remix)",
+      "Album": "M-Project - Rave Expedition",
+      "Artist": "M-Project",
+      "Provider": "Bandcamp",
+      "Link": "https://m-project-jpn.bandcamp.com",
+      "JacketSha1": "7F1643B725B16CE20AD3C9CB81DACCFE78694CAF"
+    },
+    {
+      "Name": "Hype (Sky_delta Remix) [feat. Such]",
+      "Album": "Innocent",
+      "Artist": "PSYQUI"
+    },
+    {
+      "Name": "ROOM",
+      "Album": "ROOM",
+      "Artist": "Such"
+    },
+    {
+      "Name": "FROM",
+      "Album": "FROM",
+      "Artist": "Such"
+    },
+    {
+      "Name": "\u591C\u306B\u99C6\u3051\u308B (Cover)",
+      "Album": "Such",
+      "Artist": "Such"
+    },
+    {
+      "Name": "MOON",
+      "Album": "Such",
+      "Artist": "Such"
+    },
+    {
+      "Name": "There is room in my heart for you. [WIP]",
+      "Album": "Such",
+      "Artist": "Such"
+    },
+    {
+      "Name": "tosaku [WIP]",
+      "Album": "Such",
+      "Artist": "Such"
+    },
+    {
+      "Name": "ungray days [WIP]",
+      "Album": "Such",
+      "Artist": "Such"
+    },
+    {
+      "Name": "Shadows (feat. Such)",
+      "Album": "Reincarnation - EP",
+      "Artist": "Neko Hacker"
+    },
+    {
+      "Name": "Recalled Collapse (feat. Such)",
+      "Album": "Epoqc 2021",
+      "Artist": "PSYQUI"
+    },
+    {
+      "Name": "Melancholic Diver (feat. Such)",
+      "Album": "Melancholic Diver (feat. Such) - Single",
+      "Artist": "Nanoca"
+    },
+    {
+      "Name": "Signal (feat. Such)",
+      "Album": "Beyond Core Evangelix 01",
+      "Artist": "rejection"
+    },
+    {
+      "Name": "Volumetric (feat. Such)",
+      "Album": "Rizing Destruction",
+      "Artist": "lapix"
+    },
+    {
+      "Name": "Reminisce (feat. Such)",
+      "Album": "Encore -Emotional Vocal Pop 01-",
+      "Artist": "Mameyudoufu"
+    },
+    {
+      "Name": "Jinx (feat. Such)",
+      "Album": "RuLu",
+      "Artist": "RuLu"
+    },
+    {
+      "Name": "\u30A8\u30F3\u30F4\u30A3\u30FC\u30D9\u30A4\u30D3\u30FC (Cover)",
+      "Album": "Such",
+      "Artist": "Such"
+    },
+    {
+      "Name": "Eyes on me feat. Such",
+      "Artist": "PSYQUI"
+    },
+    {
+      "Name": "\u30B5\u30EB\u30D9\u30FC\u30B8 (feat. Such)",
+      "Album": "\u30B5\u30EB\u30D9\u30FC\u30B8 (feat. Such)",
+      "Artist": "RuLu, Such",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/800555",
+      "JacketSha1": "450289750D2E48B9C457AB929594B6CE6EAB64B2"
+    },
+    {
+      "Name": "GHOST (feat. Such)",
+      "Album": "Such",
+      "Artist": "Len"
+    },
+    {
+      "Name": "Room",
+      "Album": "The Blue Moon from the Room. - EP",
+      "Artist": "Such \u0026 ADA"
+    },
+    {
+      "Name": "From",
+      "Album": "The Blue Moon from the Room. - EP",
+      "Artist": "Such \u0026 Nanoca"
+    },
+    {
+      "Name": "Blue",
+      "Album": "The Blue Moon from the Room. - EP",
+      "Artist": "Such \u0026 RuLu"
+    },
+    {
+      "Name": "Moon",
+      "Album": "The Blue Moon from the Room. - EP",
+      "Artist": "Such \u0026 KBSNK"
+    },
+    {
+      "Name": "Period",
+      "Album": "The Blue Moon from the Room. - EP",
+      "Artist": "Such \u0026 YACA IN DA HOUSE"
+    },
+    {
+      "Name": "\u30CF\u30EB\u30B8\u30AA\u30F3",
+      "Album": "THE BOOK",
+      "Artist": "YOASOBI",
+      "Provider": "CD Rip",
+      "JacketSha1": "B101D7EFEA1159BDFB3E29B651CFA969C2754EC9"
+    },
+    {
+      "Name": "\u7FA4\u9752",
+      "Album": "THE BOOK",
+      "Artist": "YOASOBI",
+      "Provider": "CD Rip",
+      "JacketSha1": "B101D7EFEA1159BDFB3E29B651CFA969C2754EC9"
+    },
+    {
+      "Name": "\u591C\u306B\u99C6\u3051\u308B",
+      "Album": "THE BOOK",
+      "Artist": "YOASOBI",
+      "Provider": "CD Rip",
+      "JacketSha1": "B101D7EFEA1159BDFB3E29B651CFA969C2754EC9"
+    },
+    {
+      "Name": "RGB",
+      "Album": "RGB",
+      "Artist": "YOASOBI",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/830884:lyricist=Ayase",
+      "JacketSha1": "1F1CD9C8BE72A43C7E27395D62C9B1634B32E0F5"
+    },
+    {
+      "Name": "Into The Night",
+      "Album": "Into The Night",
+      "Artist": "YOASOBI",
+      "Provider": "OTOTOY",
+      "Link": "http://ototoy.jp/_/default/p/812800:lyricist=Ayase",
+      "JacketSha1": "683BFD0437DA3FD7DE0B52BA9E35F352762F2C27"
+    },
+    {
+      "Name": "Hyadain no Joujou Yuujou",
+      "Album": "Nichijou OP 2 - Hyadain no Joujou Yuujou",
+      "Artist": "Hyadain",
+      "JacketSha1": "84EA7A3689794646F1E1FB8CAFB3276B726DEA2B"
+    },
+    {
+      "Name": "Hyadain no Kakakata\u2606Kataomoi-C",
+      "Album": "Nichijou OP 1 - Hyadain no Kakakata\u2606kataomoi-C",
+      "Artist": "Hyadain",
+      "JacketSha1": "99B2A84D2054F00F02157B275CCAC245C70EC9D7"
+    },
+    {
+      "Name": "\u75BE\u98A8 -hayate- (with Kamiya Hiroto)",
+      "Album": "Iroha",
+      "Artist": "Street, Kamiya Hiroto",
+      "Provider": "CD Rip",
+      "JacketSha1": "F2C2C411529ABE90D0946DC5C372C44A57E9E706"
+    }
+  ]
+}

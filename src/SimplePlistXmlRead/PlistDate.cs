@@ -9,5 +9,7 @@ namespace SimplePlistXmlRead
         public static PlistDate FromElement(XElement element) => new((DateTime)element);
 
         public override string ToDisplayString() => Value.ToString(CultureInfo.InvariantCulture);
+
+        public static explicit operator DateTime(PlistDate value) => value.Value;
     }
 }

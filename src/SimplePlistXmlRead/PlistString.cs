@@ -7,5 +7,7 @@ namespace SimplePlistXmlRead
         public static PlistString FromElement(XElement element) => new((string)element);
 
         public override string ToDisplayString() => Value;
+
+        public static explicit operator string(PlistString value) => value.Value;
     }
 }
