@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -21,90 +20,6 @@ namespace SimplePlistXmlRead
 
             value = GetValueFromKeyElement(element);
             return true;
-        }
-
-        public bool TryGetTypedValue<T>(string key, [NotNullWhen(true)] out T? value) where T : PlistValue
-        {
-            if (TryGetValue(key, out var v) && v is T vv)
-            {
-                value = vv;
-                return true;
-            }
-
-            value = null;
-            return false;
-        }
-
-        public bool TryGetArray(string key, [NotNullWhen(true)] out PlistValue[]? value)
-        {
-            if (TryGetTypedValue<PlistArray>(key, out var v))
-            {
-                value = v.ToArray();
-                return true;
-            }
-
-            value = null;
-            return false;
-        }
-
-        public bool TryGetDictionary(string key, [NotNullWhen(true)] out Dictionary<string, PlistValue>? value)
-        {
-            if (TryGetTypedValue<PlistDict>(key, out var v))
-            {
-                value = new Dictionary<string, PlistValue>(v);
-                return true;
-            }
-
-            value = null;
-            return false;
-        }
-
-        public bool TryGetInteger(string key, [NotNullWhen(true)] out long? value)
-        {
-            if (TryGetTypedValue<PlistInteger>(key, out var v))
-            {
-                value = v.Value;
-                return true;
-            }
-
-            value = null;
-            return false;
-        }
-
-        public bool TryGetString(string key, [NotNullWhen(true)] out string? value)
-        {
-            if (TryGetTypedValue<PlistString>(key, out var v))
-            {
-                value = v.Value;
-                return true;
-            }
-
-            value = null;
-            return false;
-        }
-
-        public bool TryGetDateTime(string key, [NotNullWhen(true)] out DateTime? value)
-        {
-            if (TryGetTypedValue<PlistDate>(key, out var v))
-            {
-                value = v.Value;
-                return true;
-            }
-
-            value = null;
-            return false;
-        }
-
-        public bool TryGetBool(string key, [NotNullWhen(true)] out bool? value)
-        {
-            if (TryGetTypedValue<PlistBool>(key, out var v))
-            {
-                value = v.Value;
-                return true;
-            }
-
-            value = null;
-            return false;
         }
 
         private static string GetKeyNameFromKeyElement(XElement element) =>

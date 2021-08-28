@@ -1,23 +1,17 @@
 ﻿using System;
-using System.Buffers.Binary;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Linq;
 using CommandLine;
+using ItSongMeta;
 using SimplePlistXmlRead;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Formats.Png;
-using SixLabors.ImageSharp.PixelFormats;
-using TagLib;
-using TagLib.Mpeg4;
 using File = System.IO.File;
 
 namespace ItPlaylistOut
@@ -28,10 +22,7 @@ namespace ItPlaylistOut
         private static readonly JsonSerializerOptions s_jso = new() {IgnoreNullValues = true};
         private static readonly JsonWriterOptions s_jwo = new() {Indented = true};
 
-        private static void Main(string[] args)
-        {
-            Parser.Default.ParseArguments<Options>(args).WithParsed(Process);
-        }
+        private static void Main(string[] args) => Parser.Default.ParseArguments<Options>(args).WithParsed(Process);
 
         private static void Process(Options opts)
         {
@@ -76,109 +67,37 @@ namespace ItPlaylistOut
 
                 if (tracks.TryGetValue(v.ToString(), out var t) && t is PlistDict track)
                 {
-                    var songData = new SongData();
-                    if (!track.TryGetString("Name", out string? name))
-                    {
-                        Console.WriteLine($"Warning: Missing name on track {v}");
-                        name = $"??? (ID {v})";
-                    }
-
-                    songData.Name = name;
-
+                    // If file's found, work purely off file
                     if (track.TryGetString("Location", out string? location))
-                        location = DecodePath(TrimNetpathStart(location));
+                    {
+                        var songData = SongData.Extract(DecodePath(TrimNetpathStart(location)));
+                        if (songData.Jacket != null) WriteImage(opts, songData.Jacket);
+                        pl.Songs.Add(songData);
+                    }
                     else
+                    {
+                        var songData = new SongData();
+                        if (!track.TryGetString("Name", out string? name))
+                        {
+                            Console.WriteLine($"Warning: Missing name on track {v}");
+                            name = $"??? (ID {v})";
+                        }
+
+                        songData.Name = name;
                         Console.WriteLine($"Warning: Missing location on track \"{name}\"");
-                    var tagfile = location != null ? TagLib.File.Create(location) : null;
+                        if (track.TryGetString("Album", out string? album))
+                            songData.Album = album;
 
-                    if (track.TryGetString("Album", out string? album))
-                        songData.Album = album;
-
-                    string? artist;
-                    if (track.TryGetString("Artist", out artist))
-                        goto artistDone;
-                    if (track.TryGetString("Album Artist", out artist))
-                        goto artistDone;
-                    artist = null;
-                    artistDone:
-                    songData.Artist = artist;
-
-                    SourceInfo? link;
-
-                    if (tagfile != null)
-                    {
-                        if (TryGetTag(tagfile, out AppleTag? mp4Apple))
-                        {
-                            if (mp4Apple.Copyright != null) songData.Copyright = mp4Apple.Copyright;
-                        }
+                        string? artist;
+                        if (track.TryGetString("Artist", out artist))
+                            goto artistDone;
+                        if (track.TryGetString("Album Artist", out artist))
+                            goto artistDone;
+                        artist = null;
+                        artistDone:
+                        songData.Artist = artist;
+                        pl.Songs.Add(songData);
                     }
-
-                    if (tagfile != null)
-                    {
-                        if (TryGetTag(tagfile, out AppleTag? mp4Apple))
-                        {
-                            if (mp4Apple.Comment != null)
-                            {
-                                if (!TryGetDlLink(mp4Apple.Comment, out link)) link = null;
-                                goto linkDone;
-                            }
-
-                            // https://music.apple.com/us/album/arcahv/1523598787?i=1523598795
-                            // Z<bh:d0>E<bh:cb>
-                            // https://music.apple.com/us/album/genesong-feat-steve-vai/1451411999?i=1451412277
-                            // 1451412277 V<bh:82><bh:cb>5 @0x10896 cnID
-                            // 1451411999 V<bh:82><bh:ca><bh:1f> @0x10907 plID
-                            // extract from song
-                            // just kidding use DataBoxes
-                            var plID = mp4Apple.DataBoxes("plID").FirstOrDefault();
-                            var cnID = mp4Apple.DataBoxes("cnID").FirstOrDefault();
-                            if (plID != null && cnID != null)
-                            {
-                                long plIDV = BinaryPrimitives.ReadInt64BigEndian(plID.Data.Data);
-                                int cnIDV = BinaryPrimitives.ReadInt32BigEndian(cnID.Data.Data);
-                                link = new SourceInfo(
-                                    $"https://music.apple.com/us/album/{plIDV}?i={cnIDV}",
-                                    "Apple Music");
-                                goto linkDone;
-                            }
-
-                            link = null;
-                            goto linkDone;
-                        }
-
-                        if (TryGetTag(tagfile, out TagLib.Id3v2.Tag? mp3) && mp3.Comment != null)
-                        {
-                            if (!TryGetDlLink(mp3.Comment, out link)) link = null;
-                            goto linkDone;
-                        }
-                    }
-
-                    link = null;
-                    linkDone:
-                    songData.Link = link?.Link;
-                    songData.Provider = link?.Provider;
-
-                    string? jacketSha1;
-                    if (tagfile != null)
-                    {
-                        if (TryGetTag(tagfile, out AppleTag? mp4Apple))
-                        {
-                            if (!TryGetImageSha1(mp4Apple.Pictures, opts, out jacketSha1)) jacketSha1 = null;
-                            goto artDone;
-                        }
-
-                        if (TryGetTag(tagfile, out TagLib.Id3v2.Tag? mp3))
-                        {
-                            if (!TryGetImageSha1(mp3.Pictures, opts, out jacketSha1)) jacketSha1 = null;
-                            goto artDone;
-                        }
-                    }
-
-                    jacketSha1 = null;
-                    artDone:
-                    songData.JacketSha1 = jacketSha1;
-
-                    pl.Songs.Add(songData);
                 }
             }
 
@@ -187,96 +106,73 @@ namespace ItPlaylistOut
             JsonSerializer.Serialize(new Utf8JsonWriter(fs, s_jwo), pl, s_jso);
         }
 
-        private static bool TryGetTag<T>(TagLib.File file, [NotNullWhen(true)] out T? tag) where T : Tag
-        {
-            switch (file.Tag)
-            {
-                case T tt:
-                    tag = tt;
-                    return true;
-                case CombinedTag ct:
-                    tag = ct.Tags.OfType<T>().FirstOrDefault();
-                    return tag != null;
-                default:
-                    tag = default;
-                    return false;
-            }
-        }
-
         private static readonly Regex _pathRegex = new(@"(%[A-Za-z\d]{2})+");
 
         private static string DecodePath(string path) =>
             _pathRegex.Replace(path, match => HttpUtility.UrlDecode(match.Value));
-
-        private static readonly PngEncoder s_pngEncoder = new();
-        private static readonly JpegEncoder s_jpegEncoder = new();
-
-        private static bool TryGetImageSha1(IPicture[] pictures, Options opts, out string? sha1)
-        {
-            if (pictures.Length == 0) goto fail;
-            try
-            {
-                using Image<Rgba32> img = Image.Load(pictures[0].Data.Data);
-                int w = img.Width, h = img.Height;
-                if (!img.TryGetSinglePixelSpan(out var span))
-                {
-                    span = new Rgba32[w * h];
-                    for (int y = 0; y < h; y++)
-                        img.GetPixelRowSpan(y).CopyTo(span.Slice(w * y, w));
-                }
-
-                sha1 = Convert.ToHexString(SHA1.HashData(MemoryMarshal.Cast<Rgba32, byte>(span)));
-                if (opts.JacketFolder != null)
-                {
-                    string targetFile =
-                        Path.Combine(opts.JacketFolder, sha1 + (opts.LosslessJackets ? ".png" : ".jpg"));
-                    if (!File.Exists(targetFile))
-                        try
-                        {
-                            MakeDirsForFile(targetFile);
-                            img.Save(targetFile, opts.LosslessJackets ? s_pngEncoder : s_jpegEncoder);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine($"Failed to write image for sha1-{sha1}\n{e}");
-                        }
-                }
-
-                return true;
-            }
-            catch
-            {
-                // fail
-            }
-
-            fail:
-            sha1 = null;
-            return false;
-        }
-
-        private static void MakeDirsForFile(string file) => Directory.CreateDirectory(Path.GetDirectoryName(file)!);
-
-        private static bool TryGetDlLink(string text, [NotNullWhen(true)] out SourceInfo? link)
-        {
-            var res = CommentRegex.Regexes
-                .Select(r => (Match: r.regex.Match(text), Provider: r.provider, Transform: r.transform))
-                .FirstOrDefault(v => v.Match.Success);
-            if (res != default)
-            {
-                link = new SourceInfo(res.Transform(res.Match.Groups[0].Value), res.Provider);
-                return true;
-            }
-
-            link = default;
-            return false;
-        }
-
-        private record SourceInfo(string? Link, string Provider);
 
         private static string TrimNetpathStart(string path)
         {
             const string lhs = "file://localhost/";
             return path.StartsWith(lhs) ? path[lhs.Length..] : path;
         }
+
+        private static void WriteImage(Options opts, JacketInfo jacket)
+        {
+            if (opts.JacketFolder == null) return;
+            string file = Path.Combine(opts.JacketFolder, jacket.Sha1);
+            if (opts.LosslessJackets)
+            {
+                EncodeLossless(jacket, file);
+            }
+            else
+            {
+                switch (jacket.Extension)
+                {
+                    case ".png":
+                        EncodeLossless(jacket, file);
+                        break;
+                    case "":
+                        {
+                            using var img = Image.Load(jacket.Value, out var format);
+                            if (format is JpegFormat) Save(jacket with {Extension = ".jpg"}, file);
+                            else EncodeLossless(img, file);
+                            break;
+                        }
+                    default:
+                        Save(jacket, file);
+                        break;
+                }
+            }
+        }
+
+        private static readonly PngEncoder s_pngEncoder = new();
+
+        private static void EncodeLossless(JacketInfo jacket, string file)
+        {
+            file += ".png";
+            if (File.Exists(file)) return;
+            MakeDirsForFile(file);
+            using var img = Image.Load(jacket.Value);
+            img.Save(file, s_pngEncoder);
+        }
+
+        private static void EncodeLossless(Image img, string file)
+        {
+            file += ".png";
+            if (File.Exists(file)) return;
+            MakeDirsForFile(file);
+            img.Save(file, s_pngEncoder);
+        }
+
+        private static void Save(JacketInfo jacket, string file)
+        {
+            file += jacket.Extension;
+            if (File.Exists(file)) return;
+            MakeDirsForFile(file);
+            File.WriteAllBytes(file, jacket.Value);
+        }
+
+        private static void MakeDirsForFile(string file) => Directory.CreateDirectory(Path.GetDirectoryName(file)!);
     }
 }
