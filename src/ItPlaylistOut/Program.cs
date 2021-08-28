@@ -129,41 +129,17 @@ namespace ItPlaylistOut
                             // 1451412277 V<bh:82><bh:cb>5 @0x10896 cnID
                             // 1451411999 V<bh:82><bh:ca><bh:1f> @0x10907 plID
                             // extract from song
-                            var fp = new FileParser(tagfile);
-                            fp.ParseBoxHeaders();
-                            var tfd = new TagFileData(tagfile);
-                            /*if (tfd.GetAtPath("moov/trak/mdia/minf/stbl/stsd/mp4a/pinf/schi/righ",
-                                out var tag) && tag.Header.Header.TotalBoxSize == 0x58)
+                            // just kidding use DataBoxes
+                            var plID = mp4Apple.DataBoxes("plID").FirstOrDefault();
+                            var cnID = mp4Apple.DataBoxes("cnID").FirstOrDefault();
+                            if (plID != null && cnID != null)
                             {
-                                byte[] fileData = File.ReadAllBytes(location!);
-                                int id = BinaryPrimitives.ReadInt32BigEndian(
-                                    fileData.AsSpan((int)(tag.Header.Header.Position + 52)));
-                                Console.WriteLine($"{name} -- {id}");
-                            }*/
-
-                            try
-                            {
-                                if (tfd.GetAtPath("moov/udta/meta/ilst/plID/data", out var plID) &&
-                                    tfd.GetAtPath("moov/udta/meta/ilst/cnID/data", out var cnID) /* &&
-                                    tfd.GetAtPath("moov/udta/meta/ilst/sonm/data", out var sonm)*/)
-                                {
-                                    Span<byte> fileData = File.ReadAllBytes(location!).AsSpan();
-                                    int plIDV = BinaryPrimitives.ReadInt32BigEndian(
-                                        fileData[(int)plID.Header.GetContentPosition(12)..]);
-                                    int cnIDV = BinaryPrimitives.ReadInt32BigEndian(
-                                        fileData[(int)cnID.Header.GetContentPosition(8)..]);
-                                    /*string sonmV = Encoding.UTF8.GetString(
-                                        fileData[(int)sonm.Header.GetContentPosition(8)
-                                            ..(int)sonm.Header.GetContentPositionFromEnd()]);*/
-                                    link = new SourceInfo(
-                                        $"https://music.apple.com/us/album/{plIDV}?i={cnIDV}",
-                                        "Apple Music");
-                                    goto linkDone;
-                                }
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine(e);
+                                long plIDV = BinaryPrimitives.ReadInt64BigEndian(plID.Data.Data);
+                                int cnIDV = BinaryPrimitives.ReadInt32BigEndian(cnID.Data.Data);
+                                link = new SourceInfo(
+                                    $"https://music.apple.com/us/album/{plIDV}?i={cnIDV}",
+                                    "Apple Music");
+                                goto linkDone;
                             }
 
                             link = null;
