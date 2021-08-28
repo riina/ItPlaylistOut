@@ -4,12 +4,20 @@
     {
       "Name": "Genesong (feat. Steve Vai)",
       "Album": "Halo 2 Anniversary (Original Soundtrack)",
-      "Artist": "Paul Lipson, Lennie Moore, Tom Salta, Brian Trifon \u0026 Brian Lee White"
+      "Artist": "Paul Lipson, Lennie Moore, Tom Salta, Brian Trifon \u0026 Brian Lee White",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1451411999?i=1451412277",
+      "JacketSha1": "FFD46FB628A0950197D5711018617D9414FDD505",
+      "Copyright": "\u2117 2014 Microsoft Corporation"
     },
     {
       "Name": "Crystallized",
       "Album": "Crystallized",
-      "Artist": "Camellia"
+      "Artist": "Camellia",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1080230292?i=1080230445",
+      "JacketSha1": "FBC0658514A9A50E946E995B8BE7241424022234",
+      "Copyright": "\u2117 2015 Kamel Camellia"
     },
     {
       "Name": "Unity",
@@ -20,17 +28,23 @@
     {
       "Name": "Rockman3 title Remix[ROCKMAN3/TITLE]",
       "Album": "Mega Music Mix [Disc 2]",
-      "Artist": "taiki"
+      "Artist": "taiki",
+      "JacketSha1": "F7DC15B2FBFD0229BDF1F33F853B59CBEA59F68F"
     },
     {
       "Name": "Tower Light Fireworks (feat. Rachie)",
       "Album": "iMeiden Volume 2",
-      "Artist": "iMeiden"
+      "Artist": "iMeiden",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1371365213?i=1371366763",
+      "JacketSha1": "EF72E4E156D74CD3DE0BEF557E49487634EB68FD",
+      "Copyright": "\u2117 2018 iMeiden"
     },
     {
       "Name": "Singularity VVVIP",
       "Album": "Arcaea",
-      "Artist": "Arcaea Sound Team against. ETIA."
+      "Artist": "Arcaea Sound Team against. ETIA.",
+      "JacketSha1": "F13958D880EFF57E7DB41D41266A2ED1637F81DC"
     },
     {
       "Name": "Modelista",
@@ -111,7 +125,11 @@
     {
       "Name": "Sakura Fubuki",
       "Album": "Sakura Fubuki - Single",
-      "Artist": "Street"
+      "Artist": "Street",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1453204309?i=1453204310",
+      "JacketSha1": "2220C26D02FE253AC5678C3DA2380A29DC14423C",
+      "Copyright": "\u2117 2019 Street"
     },
     {
       "Name": "Utopia",
@@ -147,12 +165,19 @@
     {
       "Name": "Song of Truth (feat. \u6760\u8449\u3048\u308A\u304B)",
       "Album": "Song of Truth (feat. \u6760\u8449\u3048\u308A\u304B) - Single",
-      "Artist": "Street"
+      "Artist": "Street",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1521709696?i=1521709698",
+      "JacketSha1": "814C71B848D469880FF2393E3C5DA2A333575B10"
     },
     {
       "Name": "\u30D5\u30EA\u30FC\u30D5\u30A9\u30FC\u30EB",
       "Album": "\u30D5\u30EA\u30FC\u30D5\u30A9\u30FC\u30EB - Single",
-      "Artist": "Zekk"
+      "Artist": "Zekk",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1554568730?i=1554568731",
+      "JacketSha1": "4A07F6263338757B97089A963E4D14FBC4F21D9A",
+      "Copyright": "\u2117 2021 Zekk"
     },
     {
       "Name": "Shooting Star feat. Risa Yuzuki",
@@ -171,12 +196,14 @@
     {
       "Name": "only my railgun",
       "Album": "infinite synthesis",
-      "Artist": "fripSide"
+      "Artist": "fripSide",
+      "JacketSha1": "C9E7B94F7146A75ADF106D8B7E12721020715713"
     },
     {
       "Name": "UNITE IN THE SKY",
       "Album": "UNITE IN THE SKY",
-      "Artist": "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093(CV:\u89D2\u5143 \u660E\u65E5\u9999)"
+      "Artist": "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093(CV:\u89D2\u5143 \u660E\u65E5\u9999)",
+      "JacketSha1": "BE8DCC92FAA6A6724E476B80EEAD59E9204F0737"
     },
     {
       "Name": "\u5927\u7953(\u30A4\u30B0\u30CA\u30A4\u30BF\u30FC\uFF09 / Igniter",
@@ -187,12 +214,14 @@
     {
       "Name": "\u8A18\u61B6\u89E3\u653EM I A O U -Medley Arrange-",
       "Album": "CYBER DIVA RORO MEDLEY CD DISC-B",
-      "Artist": "RoRo"
+      "Artist": "RoRo",
+      "JacketSha1": "5C0C5AF47A6B8CD224BD0E293AC22F5901F57F6E"
     },
     {
       "Name": "\u5927\u7953(\u30A4\u30B0\u30CA\u30A4\u30BF\u30FC) -Medley Arrange-",
       "Album": "CYBER DIVA RORO MEDLEY CD DISC-B",
-      "Artist": "RoRo"
+      "Artist": "RoRo",
+      "JacketSha1": "5C0C5AF47A6B8CD224BD0E293AC22F5901F57F6E"
     },
     {
       "Name": "Flame of Nuclear",
@@ -1265,12 +1294,20 @@
     {
       "Name": "1,000,000 TIMES feat. chelly",
       "Album": "1,000,000 TIMES - Single",
-      "Artist": "MY FIRST STORY"
+      "Artist": "MY FIRST STORY",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1516799648?i=1516799649",
+      "JacketSha1": "6A927FF9E16F9429B65319F0862FA46D3CD4C6CC",
+      "Copyright": "\u2117 2020 INTACT RECORDS"
     },
     {
       "Name": "Are You Kidding Me (feat. Mami)",
       "Album": "Spd Gar 002",
-      "Artist": "PSYQUI"
+      "Artist": "PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1476217364?i=1476217367",
+      "JacketSha1": "2197DC10D63D4907F5845872FA7BE786EF3A2B5E",
+      "Copyright": "\u2117 2019 MEGAREX"
     },
     {
       "Name": "\u604B\u306E\u3046\u305F (feat. \u7531\u5D0E\u53F8)",
@@ -1283,7 +1320,11 @@
     {
       "Name": "[A]ddiction",
       "Album": "Evolution",
-      "Artist": "EVO\u002B"
+      "Artist": "EVO\u002B",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1077616482?i=1077616509",
+      "JacketSha1": "3B17E3EE6805CE23753057119CB5E848624CB721",
+      "Copyright": "\u2117 EXIT TUNES"
     },
     {
       "Name": "\u304B\u3054\u3081",
@@ -1471,16 +1512,26 @@
     {
       "Name": "\u30AB\u30BC\u30DE\u30C1\u30B0\u30B5(feat. \u9CF4\u82B1\u30D2\u30E1)",
       "Album": "\u30AB\u30BC\u30DE\u30C1\u30B0\u30B5(feat. \u9CF4\u82B1\u30D2\u30E1) - Single",
-      "Artist": "\u7A32\u8449\u66C7"
+      "Artist": "\u7A32\u8449\u66C7",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1527517899?i=1527517901",
+      "JacketSha1": "3B7E9E3357C6A7AD95955045AF7D945FBAB9F518",
+      "Copyright": "\u2117 2020 YOSHIMOTO KOGYO CO.,LTD."
     },
     {
       "Name": "\u30CF\u30EB\u30CE\u5BC2\u5BDE",
-      "Artist": "Inabakumori"
+      "Artist": "Inabakumori",
+      "JacketSha1": "9B8D507EE82ED80BD0B9AE9D4A32EBCDEF1A526A",
+      "Copyright": "\u2117 2021 \u66C7\u6C17\u8C61\u53F0"
     },
     {
       "Name": "\u30E9\u30B0\u30C8\u30EC\u30A4\u30F3",
       "Album": "\u30E9\u30B0\u30C8\u30EC\u30A4\u30F3 - Single",
-      "Artist": "Inabakumori"
+      "Artist": "Inabakumori",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1526635530?i=1526635531",
+      "JacketSha1": "504113DD28B5FCC217E1F7F5018A2AC4F8589CDE",
+      "Copyright": "\u2117 2020 \u7A32\u8449\u66C7"
     },
     {
       "Name": "\u30EC\u30A4\u30CB\u30FC\u30D6\u30FC\u30C4",
@@ -1528,12 +1579,14 @@
     {
       "Name": "My Story feat.\u67DA\u5B50\u82B1\uFF08yoswu Remix)",
       "Album": "Decoration. (Remixes)",
-      "Artist": "KOTONOHOUSE \u0026 yoswu"
+      "Artist": "KOTONOHOUSE \u0026 yoswu",
+      "JacketSha1": "1FACA99F482939BA4A7CDCF5DD6D2A055919BFC3"
     },
     {
       "Name": "\u9B54\u6CD5\u5C11\u5973\u5F15\u9000\u5BA3\u8A00\uFF08\u4EEE\uFF09 feat.\u661F\u5BAE\u3068\u3068 \uFF08Mtell Remix\uFF09",
       "Album": "Decoration. (Remixes)",
-      "Artist": "Kijibato \u0026 Mtell"
+      "Artist": "Kijibato \u0026 Mtell",
+      "JacketSha1": "1FACA99F482939BA4A7CDCF5DD6D2A055919BFC3"
     },
     {
       "Name": "MAGICAL MEMES (feat.BOOGEY VOXX)\t",
@@ -1608,32 +1661,38 @@
     {
       "Name": "Luminous(RYOQUCHA Remix)",
       "Album": "Fortune. [\u7279\u5178]",
-      "Artist": "Dotnoi \u0026 Tom-i"
+      "Artist": "Dotnoi \u0026 Tom-i",
+      "JacketSha1": "A7C9AF09A9EED7F230DC55DFAA851FD0A948376E"
     },
     {
       "Name": "full of spells (S2i8 Remix)",
       "Album": "Fortune. [\u7279\u5178]",
-      "Artist": "kamome sano"
+      "Artist": "kamome sano",
+      "JacketSha1": "A7C9AF09A9EED7F230DC55DFAA851FD0A948376E"
     },
     {
       "Name": "Rays feat. \u661F\u5BAE\u3068\u3068 (Extended ver.)",
       "Album": "Fortune. [\u7279\u5178]",
-      "Artist": "tokiwa"
+      "Artist": "tokiwa",
+      "JacketSha1": "A7C9AF09A9EED7F230DC55DFAA851FD0A948376E"
     },
     {
       "Name": "Luminous feat. \u7D21\u97F3\u308C\u3044  (Extended ver.)",
       "Album": "Fortune. [\u7279\u5178]",
-      "Artist": "Dotnoi \u0026 Tom-i"
+      "Artist": "Dotnoi \u0026 Tom-i",
+      "JacketSha1": "A7C9AF09A9EED7F230DC55DFAA851FD0A948376E"
     },
     {
       "Name": "Can\u0027t Stop Me feat. TEA (Extended ver.)",
       "Album": "Fortune. [\u7279\u5178]",
-      "Artist": "Mameyudoufu"
+      "Artist": "Mameyudoufu",
+      "JacketSha1": "A7C9AF09A9EED7F230DC55DFAA851FD0A948376E"
     },
     {
       "Name": "\u6708\u5F71\u30DF\u30C3\u30C9\u30CA\u30A4\u30C8 feat.\u5F0F\u90E8\u3081\u3050\u308A (Extended ver.)",
       "Album": "Fortune. [\u7279\u5178]",
-      "Artist": "picco"
+      "Artist": "picco",
+      "JacketSha1": "A7C9AF09A9EED7F230DC55DFAA851FD0A948376E"
     },
     {
       "Name": "I Don\u0027t Care (feat. \u306A\u306A\u3072\u3089)",
@@ -1678,42 +1737,68 @@
     {
       "Name": "Karma",
       "Album": "Karma - Single",
-      "Artist": "Dareharu"
+      "Artist": "Dareharu",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1503464115?i=1503464117",
+      "JacketSha1": "905237713C760E75E95F7E7DA6AF0815618453B9",
+      "Copyright": "\u2117 2020 Dareharu"
     },
     {
       "Name": "Flowering",
       "Album": "Flowering - Single",
-      "Artist": "Dareharu"
+      "Artist": "Dareharu",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1515226580?i=1515226581",
+      "JacketSha1": "A30BA43DADD8A7CFD26D88F6F1299DBFBEB0D25D",
+      "Copyright": "\u2117 2020 Dareharu"
     },
     {
       "Name": "\u30AB\u30EF\u30AD\u30F2\u30A2\u30E1\u30AF",
       "Album": "\u30AB\u30EF\u30AD\u30F2\u30A2\u30E1\u30AF",
-      "Artist": "\u7F8E\u6CE2"
+      "Artist": "\u7F8E\u6CE2",
+      "JacketSha1": "EF458660464E18B3861779FD2863646EEEA2DD33"
     },
     {
       "Name": "Bad Apple!! (feat.nomico)",
       "Album": "\u03BC\u03BF\u03BD\u03B1\u03BE\u03B9\u03AC (feat.nomico)",
-      "Artist": "Alstroemeria Records"
+      "Artist": "Alstroemeria Records",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1437626963?i=1437626967",
+      "JacketSha1": "C79C76E48937E2A7056DFF545E9495C99A722BD1",
+      "Copyright": "\u2117 2017 Alstroemeria Records"
     },
     {
       "Name": "Pallet",
       "Album": "4th-Peace - EP",
-      "Artist": "Mikanzil \u0026 PSYQUI"
+      "Artist": "Mikanzil \u0026 PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1462556139?i=1462556150",
+      "JacketSha1": "2D20922099F40F99850072B8B8850719C58863FF",
+      "Copyright": "\u2117 2019 mikanzil-spice"
     },
     {
       "Name": "Endroll",
       "Album": "4th-Peace - EP",
-      "Artist": "Mikanzil \u0026 PSYQUI"
+      "Artist": "Mikanzil \u0026 PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1462556139?i=1462556247",
+      "JacketSha1": "2D20922099F40F99850072B8B8850719C58863FF",
+      "Copyright": "\u2117 2019 mikanzil-spice"
     },
     {
       "Name": "Concentration",
       "Album": "Your voice so...",
-      "Artist": "PSYQUI"
+      "Artist": "PSYQUI",
+      "JacketSha1": "14AF36397C553211F2778C93B659905FBF5B18EA"
     },
     {
       "Name": "Multitalents",
       "Album": "Funky Gabber",
-      "Artist": "PSYQUI"
+      "Artist": "PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1476404591?i=1476404601",
+      "JacketSha1": "6076D7FDBCF99D95D50D0E0A72A74E09E621ABC0",
+      "Copyright": "\u2117 2019 MEGAREX"
     },
     {
       "Name": "Swelling",
@@ -1734,22 +1819,35 @@
     {
       "Name": "Start Up",
       "Album": "Your voice so...",
-      "Artist": "PSYQUI feat. Such"
+      "Artist": "PSYQUI feat. Such",
+      "JacketSha1": "14AF36397C553211F2778C93B659905FBF5B18EA"
     },
     {
       "Name": "\u30D2\u30B9\u30C6\u30EA\u30C3\u30AF\u30CA\u30A4\u30C8\u30AC\u30FC\u30EB (feat. Such)",
       "Album": "Styley!",
-      "Artist": "PSYQUI"
+      "Artist": "PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1464746699?i=1464746704",
+      "JacketSha1": "4111E8857325F3D0ACEC7940F55D7B96365D7BD1",
+      "Copyright": "\u2117 2018 Loquartz"
     },
     {
       "Name": "Hype (feat. Such)",
       "Album": "F\u00DCGENE 02",
-      "Artist": "PSYQUI"
+      "Artist": "PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1462747885?i=1462747888",
+      "JacketSha1": "DE3C6DDDAF850DCDEEFAA1F37EAE6C89AD501C1B",
+      "Copyright": "\u2117 2018 MEGAREX"
     },
     {
       "Name": "Don\u0027t You Want Me (feat. Such)",
       "Album": "Spd Gar",
-      "Artist": "PSYQUI"
+      "Artist": "PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1462925409?i=1462925420",
+      "JacketSha1": "82725295E3B15461F645F0AB0B58F7E221256689",
+      "Copyright": "\u2117 2018 MEGAREX"
     },
     {
       "Name": "Summers (feat. Such \u0026 \u6765\u6D77)",
@@ -1778,27 +1876,44 @@
     {
       "Name": "Mend Your Ways (feat. Psyqui)",
       "Album": "Innocent",
-      "Artist": "Such"
+      "Artist": "Such",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1473668549?i=1473668557",
+      "JacketSha1": "AA6E94ECC263F47861FABA376DB7061359B7E416",
+      "Copyright": "\u2117 2018 MEGAREX"
     },
     {
       "Name": "Sentimental Heart Boy (feat. Psyqui)",
       "Album": "Innocent",
-      "Artist": "Such"
+      "Artist": "Such",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1473668549?i=1473668560",
+      "JacketSha1": "AA6E94ECC263F47861FABA376DB7061359B7E416",
+      "Copyright": "\u2117 2018 MEGAREX"
     },
     {
       "Name": "Hysteric Night Girl -Awakening- (feat. Such)",
       "Album": "Innocent",
-      "Artist": "PSYQUI"
+      "Artist": "PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1473668549?i=1473668561",
+      "JacketSha1": "AA6E94ECC263F47861FABA376DB7061359B7E416",
+      "Copyright": "\u2117 2018 MEGAREX"
     },
     {
       "Name": "Don\u0027t You Want Me (Mameyudoufu Remix) [feat. Such]",
       "Album": "Innocent",
-      "Artist": "PSYQUI"
+      "Artist": "PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1473668549?i=1473668563",
+      "JacketSha1": "AA6E94ECC263F47861FABA376DB7061359B7E416",
+      "Copyright": "\u2117 2018 MEGAREX"
     },
     {
       "Name": "LOVE\u0026ROLL",
       "Album": "Innocent",
-      "Artist": "Such"
+      "Artist": "Such",
+      "JacketSha1": "1C00CB50C48A950339B96153ACB16FCDEB27F5BE"
     },
     {
       "Name": "PSYQUI - Your voice so... feat. Such (M-Project Remix)",
@@ -1811,7 +1926,11 @@
     {
       "Name": "Hype (Sky_delta Remix) [feat. Such]",
       "Album": "Innocent",
-      "Artist": "PSYQUI"
+      "Artist": "PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1473668549?i=1473668568",
+      "JacketSha1": "AA6E94ECC263F47861FABA376DB7061359B7E416",
+      "Copyright": "\u2117 2018 MEGAREX"
     },
     {
       "Name": "Dr. (feat. such)",
@@ -1832,12 +1951,14 @@
     {
       "Name": "ROOM",
       "Album": "ROOM",
-      "Artist": "Such"
+      "Artist": "Such",
+      "JacketSha1": "2B08704709842F1C683648CFDAD20AB3E673B99B"
     },
     {
       "Name": "FROM",
       "Album": "FROM",
-      "Artist": "Such"
+      "Artist": "Such",
+      "JacketSha1": "216EE69144F52CF7B06E4B6F35E933380AEDB37C"
     },
     {
       "Name": "\u591C\u306B\u99C6\u3051\u308B (Cover)",
@@ -1867,37 +1988,65 @@
     {
       "Name": "Shadows (feat. Such)",
       "Album": "Reincarnation - EP",
-      "Artist": "Neko Hacker"
+      "Artist": "Neko Hacker",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1501330153?i=1501330170",
+      "JacketSha1": "26476F8F70AA0B55BB4FDD1F40225CE82829E033",
+      "Copyright": "\u2117 2020 Koneko Records"
     },
     {
       "Name": "Recalled Collapse (feat. Such)",
       "Album": "Epoqc 2021",
-      "Artist": "PSYQUI"
+      "Artist": "PSYQUI",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1474382199?i=1474382202",
+      "JacketSha1": "456F823A0C4FE1D17909F53AD87BFDD059F26CED",
+      "Copyright": "\u2117 2018 MEGAREX"
     },
     {
       "Name": "Melancholic Diver (feat. Such)",
       "Album": "Melancholic Diver (feat. Such) - Single",
-      "Artist": "Nanoca"
+      "Artist": "Nanoca",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1525863821?i=1525863822",
+      "JacketSha1": "2F2B26DD763FEC89281B36449944A8F5CCE8EF52",
+      "Copyright": "\u2117 2020 Nanoca"
     },
     {
       "Name": "Signal (feat. Such)",
       "Album": "Beyond Core Evangelix 01",
-      "Artist": "rejection"
+      "Artist": "rejection",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1493785629?i=1493787289",
+      "JacketSha1": "E890263F554E202CE6608703B83E77203FC58A7C",
+      "Copyright": "\u2117 2020 MEGAREX"
     },
     {
       "Name": "Volumetric (feat. Such)",
       "Album": "Rizing Destruction",
-      "Artist": "lapix"
+      "Artist": "lapix",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1493157576?i=1493157585",
+      "JacketSha1": "62EEAC7CAAAF6B76165A671B487E9548359BA61F",
+      "Copyright": "\u2117 2020 MEGAREX"
     },
     {
       "Name": "Reminisce (feat. Such)",
       "Album": "Encore -Emotional Vocal Pop 01-",
-      "Artist": "Mameyudoufu"
+      "Artist": "Mameyudoufu",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1493779075?i=1493779211",
+      "JacketSha1": "AABB6A169D679A31CB4BACBC99164C1038A92109",
+      "Copyright": "\u2117 2020 MEGAREX"
     },
     {
       "Name": "Jinx (feat. Such)",
       "Album": "RuLu",
-      "Artist": "RuLu"
+      "Artist": "RuLu",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1548075988?i=1548076446",
+      "JacketSha1": "1CEE3182396589EABDDF854C5B371D62CAF77C71",
+      "Copyright": "\u2117 2021 RuLu"
     },
     {
       "Name": "\u30D5\u30A1\u30F3\u30C8\u30DE\u30A4\u30BA",
@@ -1932,27 +2081,47 @@
     {
       "Name": "Room",
       "Album": "The Blue Moon from the Room. - EP",
-      "Artist": "Such \u0026 ADA"
+      "Artist": "Such \u0026 ADA",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1552368037?i=1552368040",
+      "JacketSha1": "E4866FA82E552F849B0A9C0618963F14E728FEAE",
+      "Copyright": "\u2117 2021 Various Artists"
     },
     {
       "Name": "From",
       "Album": "The Blue Moon from the Room. - EP",
-      "Artist": "Such \u0026 Nanoca"
+      "Artist": "Such \u0026 Nanoca",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1552368037?i=1552368044",
+      "JacketSha1": "E4866FA82E552F849B0A9C0618963F14E728FEAE",
+      "Copyright": "\u2117 2021 Various Artists"
     },
     {
       "Name": "Blue",
       "Album": "The Blue Moon from the Room. - EP",
-      "Artist": "Such \u0026 RuLu"
+      "Artist": "Such \u0026 RuLu",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1552368037?i=1552368045",
+      "JacketSha1": "E4866FA82E552F849B0A9C0618963F14E728FEAE",
+      "Copyright": "\u2117 2021 Various Artists"
     },
     {
       "Name": "Moon",
       "Album": "The Blue Moon from the Room. - EP",
-      "Artist": "Such \u0026 KBSNK"
+      "Artist": "Such \u0026 KBSNK",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1552368037?i=1552368046",
+      "JacketSha1": "E4866FA82E552F849B0A9C0618963F14E728FEAE",
+      "Copyright": "\u2117 2021 Various Artists"
     },
     {
       "Name": "Period",
       "Album": "The Blue Moon from the Room. - EP",
-      "Artist": "Such \u0026 YACA IN DA HOUSE"
+      "Artist": "Such \u0026 YACA IN DA HOUSE",
+      "Provider": "Apple Music",
+      "Link": "https://music.apple.com/us/album/1552368037?i=1552368047",
+      "JacketSha1": "E4866FA82E552F849B0A9C0618963F14E728FEAE",
+      "Copyright": "\u2117 2021 Various Artists"
     },
     {
       "Name": "\u30CF\u30EB\u30B8\u30AA\u30F3",

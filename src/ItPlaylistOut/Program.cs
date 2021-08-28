@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -84,11 +85,11 @@ namespace ItPlaylistOut
 
                     songData.Name = name;
 
-                    if (!track.TryGetString("Location", out string? location))
+                    if (track.TryGetString("Location", out string? location))
+                        location = DecodePath(TrimNetpathStart(location));
+                    else
                         Console.WriteLine($"Warning: Missing location on track \"{name}\"");
-                    var tagfile = location != null
-                        ? TagLib.File.Create(DecodePath(TrimNetpathStart(location)))
-                        : null;
+                    var tagfile = location != null ? TagLib.File.Create(location) : null;
 
                     if (track.TryGetString("Album", out string? album))
                         songData.Album = album;
@@ -103,20 +104,73 @@ namespace ItPlaylistOut
                     songData.Artist = artist;
 
                     SourceInfo? link;
+
                     if (tagfile != null)
                     {
-                        if (tagfile.GetTag(TagTypes.Apple) is AppleTag {Comment: { }} mp4Apple)
+                        if (TryGetTag(tagfile, out AppleTag? mp4Apple))
                         {
-                            if (!TryGetDlLink(mp4Apple.Comment, out link)) link = null;
                             if (mp4Apple.Copyright != null) songData.Copyright = mp4Apple.Copyright;
+                        }
+                    }
+
+                    if (tagfile != null)
+                    {
+                        if (TryGetTag(tagfile, out AppleTag? mp4Apple))
+                        {
+                            if (mp4Apple.Comment != null)
+                            {
+                                if (!TryGetDlLink(mp4Apple.Comment, out link)) link = null;
+                                goto linkDone;
+                            }
+
                             // https://music.apple.com/us/album/arcahv/1523598787?i=1523598795
                             // Z<bh:d0>E<bh:cb>
+                            // https://music.apple.com/us/album/genesong-feat-steve-vai/1451411999?i=1451412277
+                            // 1451412277 V<bh:82><bh:cb>5 @0x10896 cnID
+                            // 1451411999 V<bh:82><bh:ca><bh:1f> @0x10907 plID
                             // extract from song
-                            // TODO
+                            var fp = new FileParser(tagfile);
+                            fp.ParseBoxHeaders();
+                            var tfd = new TagFileData(tagfile);
+                            /*if (tfd.GetAtPath("moov/trak/mdia/minf/stbl/stsd/mp4a/pinf/schi/righ",
+                                out var tag) && tag.Header.Header.TotalBoxSize == 0x58)
+                            {
+                                byte[] fileData = File.ReadAllBytes(location!);
+                                int id = BinaryPrimitives.ReadInt32BigEndian(
+                                    fileData.AsSpan((int)(tag.Header.Header.Position + 52)));
+                                Console.WriteLine($"{name} -- {id}");
+                            }*/
+
+                            try
+                            {
+                                if (tfd.GetAtPath("moov/udta/meta/ilst/plID/data", out var plID) &&
+                                    tfd.GetAtPath("moov/udta/meta/ilst/cnID/data", out var cnID) /* &&
+                                    tfd.GetAtPath("moov/udta/meta/ilst/sonm/data", out var sonm)*/)
+                                {
+                                    Span<byte> fileData = File.ReadAllBytes(location!).AsSpan();
+                                    int plIDV = BinaryPrimitives.ReadInt32BigEndian(
+                                        fileData[(int)plID.Header.GetContentPosition(12)..]);
+                                    int cnIDV = BinaryPrimitives.ReadInt32BigEndian(
+                                        fileData[(int)cnID.Header.GetContentPosition(8)..]);
+                                    /*string sonmV = Encoding.UTF8.GetString(
+                                        fileData[(int)sonm.Header.GetContentPosition(8)
+                                            ..(int)sonm.Header.GetContentPositionFromEnd()]);*/
+                                    link = new SourceInfo(
+                                        $"https://music.apple.com/us/album/{plIDV}?i={cnIDV}",
+                                        "Apple Music");
+                                    goto linkDone;
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e);
+                            }
+
+                            link = null;
                             goto linkDone;
                         }
 
-                        if (tagfile.GetTag(TagTypes.Id3v2) is TagLib.Id3v2.Tag {Comment: { }} mp3)
+                        if (TryGetTag(tagfile, out TagLib.Id3v2.Tag? mp3) && mp3.Comment != null)
                         {
                             if (!TryGetDlLink(mp3.Comment, out link)) link = null;
                             goto linkDone;
@@ -131,13 +185,13 @@ namespace ItPlaylistOut
                     string? jacketSha1;
                     if (tagfile != null)
                     {
-                        if (tagfile.GetTag(TagTypes.Apple) is AppleTag {Comment: { }} mp4Apple)
+                        if (TryGetTag(tagfile, out AppleTag? mp4Apple))
                         {
                             if (!TryGetImageSha1(mp4Apple.Pictures, opts, out jacketSha1)) jacketSha1 = null;
                             goto artDone;
                         }
 
-                        if (tagfile.GetTag(TagTypes.Id3v2) is TagLib.Id3v2.Tag {Comment: { }} mp3)
+                        if (TryGetTag(tagfile, out TagLib.Id3v2.Tag? mp3))
                         {
                             if (!TryGetImageSha1(mp3.Pictures, opts, out jacketSha1)) jacketSha1 = null;
                             goto artDone;
@@ -155,6 +209,22 @@ namespace ItPlaylistOut
             MakeDirsForFile(opts.OutFile);
             using FileStream fs = File.Create(opts.OutFile);
             JsonSerializer.Serialize(new Utf8JsonWriter(fs, s_jwo), pl, s_jso);
+        }
+
+        private static bool TryGetTag<T>(TagLib.File file, [NotNullWhen(true)] out T? tag) where T : Tag
+        {
+            switch (file.Tag)
+            {
+                case T tt:
+                    tag = tt;
+                    return true;
+                case CombinedTag ct:
+                    tag = ct.Tags.OfType<T>().FirstOrDefault();
+                    return tag != null;
+                default:
+                    tag = default;
+                    return false;
+            }
         }
 
         private static readonly Regex _pathRegex = new(@"(%[A-Za-z\d]{2})+");
