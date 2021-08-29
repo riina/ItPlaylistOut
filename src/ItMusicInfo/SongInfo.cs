@@ -16,7 +16,7 @@ namespace ItMusicInfo
 {
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
-    public class SongData
+    public class SongInfo
     {
         public string Name { get; set; } = null!;
 
@@ -34,9 +34,9 @@ namespace ItMusicInfo
 
         [JsonIgnore] public string? FilePath { get; set; }
 
-        public static SongData Extract(string path, bool readJacketSha1 = false)
+        public static SongInfo Extract(string path, bool readJacketSha1 = false)
         {
-            var songData = new SongData();
+            var songData = new SongInfo();
             songData.LoadCore(path, readJacketSha1);
             return songData;
         }

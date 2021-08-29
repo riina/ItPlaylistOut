@@ -11,47 +11,61 @@ using SimplePlistXmlRead;
 
 namespace ItMusicInfo.Itunes.Windows
 {
-    public static class WindowsItunes
+    public class WindowsItunesLibrary : MusicLibrary
     {
         private const string LibraryFile = "iTunes Music Library.xml";
 
-        public static async Task<PlaylistData?> GetPlaylistAsync(string libraryPath, string playlistName,
-            bool readJacketSha1, IProgress<int>? progress, CancellationToken cancellationToken)
+        private readonly Dictionary<string, PlistValue> s_root;
+        private readonly Dictionary<string, PlistValue> s_tracks;
+        private readonly PlistValue[] s_playlists;
+
+        public WindowsItunesLibrary(Dictionary<string, PlistValue> root, Dictionary<string, PlistValue> tracks,
+            PlistValue[] playlists)
+        {
+            s_root = root;
+            s_tracks = tracks;
+            s_playlists = playlists;
+        }
+
+        public static async Task<WindowsItunesLibrary> LoadFromFileAsync(string libraryPath,
+            CancellationToken cancellationToken)
         {
             XElement? xml;
             await using (var pfs = File.OpenRead(Path.Combine(libraryPath, LibraryFile)))
                 xml = await XElement.LoadAsync(pfs, LoadOptions.None, cancellationToken);
-            var rootDict = new PlistDict(xml.Elements("dict").First());
+            var rootDict = new Dictionary<string, PlistValue>(new PlistDict(xml.Elements("dict").First()));
 
             if (!rootDict.TryGetDictionary("Tracks", out var tracks))
-                throw new PlaylistNotFoundException("Failed to get Tracks section in src file", playlistName);
+                throw new LibraryLoadException("Failed to get Tracks section in src file");
 
             if (!rootDict.TryGetArray("Playlists", out var playlists))
-                throw new PlaylistNotFoundException("Failed to get Playlists section in src file", playlistName);
+                throw new LibraryLoadException("Failed to get Playlists section in src file");
+            return new WindowsItunesLibrary(rootDict, tracks, playlists);
+        }
 
-            if (playlists.OfType<PlistDict>().FirstOrDefault(v =>
+        public override PlaylistInfo? GetPlaylist(string playlistName)
+        {
+            if (s_playlists.OfType<PlistDict>().FirstOrDefault(v =>
                 v.TryGetString("Name", out string? value) &&
                 string.Equals(value, playlistName, StringComparison.InvariantCultureIgnoreCase)) is not { } playlist)
-                throw new PlaylistNotFoundException($"Failed to find playlist named {playlistName} in src file",
-                    playlistName);
+                return null;
 
             if (!playlist.TryGetArray("Playlist Items", out var items))
-                throw new PlaylistNotFoundException("Failed to find playlist content data in src file", playlistName);
+                return null;
 
             var itemKeys = items.OfType<PlistDict>()
                 .Select(d => d.TryGetInteger("Track ID", out long? value) ? value : null).ToList();
 
-            var pl = new PlaylistData {Name = (string)(playlist["Name"] as PlistString)!, Songs = new List<SongData>()};
-            int i = 0;
+            var pl = new PlaylistInfo {Name = (string)(playlist["Name"] as PlistString)!, Songs = new List<SongInfo>()};
             foreach (long? x in itemKeys)
             {
-                if (x is not { } v || !tracks.TryGetValue(v.ToString(), out var t) || t is not PlistDict track)
+                if (x is not { } v || !s_tracks.TryGetValue(v.ToString(), out var t) || t is not PlistDict track)
                     continue;
                 if (track.TryGetString("Location", out string? location))
-                    pl.Songs.Add(SongData.Extract(DecodePath(TrimNetpathStart(location)), readJacketSha1));
+                    pl.Songs.Add(SongInfo.Extract(DecodePath(TrimNetpathStart(location))));
                 else
                 {
-                    var songData = new SongData
+                    var songData = new SongInfo
                     {
                         Name = track.TryGetString("Name", out string? name) ? name : $"??? (ID {v})",
                         Album = track.TryGetString("Album", out string? album) ? album : null,
@@ -60,8 +74,6 @@ namespace ItMusicInfo.Itunes.Windows
                     };
                     pl.Songs.Add(songData);
                 }
-
-                progress?.Report(++i * 100 / itemKeys.Count);
             }
 
             return pl;
