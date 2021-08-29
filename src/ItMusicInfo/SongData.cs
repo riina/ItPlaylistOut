@@ -36,13 +36,19 @@ namespace ItMusicInfo
         public static SongData Extract(string path)
         {
             var songData = new SongData();
+            songData.LoadCore(path);
+            return songData;
+        }
+
+        private void LoadCore(string path)
+        {
             var tagfile = TagLib.File.Create(path);
             var tags = tagfile.Tag;
-            songData.Name = tags.Title;
-            songData.Album = tags.Album;
-            songData.Copyright = tags.Copyright;
-            songData.Artist = tags.Performers.FirstOrDefault();
-            songData.Artist ??= tags.AlbumArtists.FirstOrDefault();
+            Name = tags.Title;
+            Album = tags.Album;
+            Copyright = tags.Copyright;
+            Artist = tags.Performers.FirstOrDefault();
+            Artist ??= tags.AlbumArtists.FirstOrDefault();
 
             SourceInfo? link;
 
@@ -79,18 +85,15 @@ namespace ItMusicInfo
 
             link = null;
             linkDone:
-            songData.Link = link?.Link;
-            songData.Provider = link?.Provider;
+            Link = link?.Link;
+            Provider = link?.Provider;
 
-            if (TryGetImageSha1(tags.Pictures, out var jacketSha1))
+            if (GetJacketInfo(tagfile.Tag.Pictures) is { } jacketInfo)
             {
-                songData.Jacket = jacketSha1;
-                songData.JacketSha1 = jacketSha1?.Sha1;
+                Jacket = jacketInfo;
+                JacketSha1 = jacketInfo.Sha1;
             }
-
-            return songData;
         }
-
 
         private static bool TryGetTag<T>(TagLib.File file, [NotNullWhen(true)] out T? tag) where T : Tag
         {
@@ -108,34 +111,35 @@ namespace ItMusicInfo
             }
         }
 
-        private static bool TryGetImageSha1(IPicture[] pictures, out JacketInfo? jacket)
+        private static JacketInfo? GetJacketInfo(IPicture[] pictures)
         {
-            if (pictures.Length == 0) goto fail;
+            if (pictures.Length == 0) return null;
             try
             {
                 var p0 = pictures[0];
                 byte[] buf = p0.Data.Data;
                 using Image<Rgba32> img = Image.Load(buf);
-                int w = img.Width, h = img.Height;
-                if (!img.TryGetSinglePixelSpan(out var span))
-                {
-                    span = new Rgba32[w * h];
-                    for (int y = 0; y < h; y++)
-                        img.GetPixelRowSpan(y).CopyTo(span.Slice(w * y, w));
-                }
-
-                string sha1 = Convert.ToHexString(SHA1.HashData(MemoryMarshal.Cast<Rgba32, byte>(span)));
-                jacket = new JacketInfo(sha1, Path.GetExtension(p0.Filename).ToLowerInvariant(), buf);
-                return true;
+                return new JacketInfo(Sha1(img), Path.GetExtension(p0.Filename).ToLowerInvariant(), buf);
             }
             catch
             {
                 // fail
             }
 
-            fail:
-            jacket = null;
-            return false;
+            return null;
+        }
+
+        private static string Sha1(Image<Rgba32> img)
+        {
+            int w = img.Width, h = img.Height;
+            if (!img.TryGetSinglePixelSpan(out var span))
+            {
+                span = new Rgba32[w * h];
+                for (int y = 0; y < h; y++)
+                    img.GetPixelRowSpan(y).CopyTo(span.Slice(w * y, w));
+            }
+
+            return Convert.ToHexString(SHA1.HashData(MemoryMarshal.Cast<Rgba32, byte>(span)));
         }
 
         private static bool TryGetDlLink(string text, [NotNullWhen(true)] out SourceInfo? link)

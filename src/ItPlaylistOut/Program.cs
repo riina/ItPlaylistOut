@@ -2,11 +2,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
 using ItMusicInfo;
 using ItMusicInfo.Itunes.Windows;
-using File = System.IO.File;
 
 namespace ItPlaylistOut
 {
@@ -15,11 +16,13 @@ namespace ItPlaylistOut
         private static readonly JsonSerializerOptions s_jso = new() {IgnoreNullValues = true};
         private static readonly JsonWriterOptions s_jwo = new() {Indented = true};
 
-        private static void Main(string[] args) => Parser.Default.ParseArguments<Options>(args).WithParsed(Process);
+        private static async Task Main(string[] args) =>
+            await Parser.Default.ParseArguments<Options>(args).WithParsedAsync(Process);
 
-        private static void Process(Options opts)
+        private static async Task Process(Options opts)
         {
-            var pl = WindowsItunes.GetPlaylist(opts.LibraryPath, opts.Playlist);
+            var pl = await WindowsItunes.GetPlaylistAsync(opts.LibraryPath, opts.Playlist, null,
+                CancellationToken.None);
             if (pl == null)
             {
                 Console.WriteLine("Failed to get playlist");
@@ -29,10 +32,11 @@ namespace ItPlaylistOut
             if (opts.JacketFolder != null)
                 foreach (var song in pl.Songs)
                     if (song.Jacket != null)
-                        Jackets.WriteImage(opts.JacketFolder, opts.LosslessJackets, song.Jacket);
+                        await Jackets.WriteImageAsync(opts.JacketFolder, opts.LosslessJackets, song.Jacket,
+                            CancellationToken.None);
 
             Directory.CreateDirectory(Path.GetDirectoryName(opts.OutFile)!);
-            using FileStream fs = File.Create(opts.OutFile);
+            await using FileStream fs = File.Create(opts.OutFile);
             JsonSerializer.Serialize(new Utf8JsonWriter(fs, s_jwo), pl, s_jso);
         }
     }
