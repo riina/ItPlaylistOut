@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Buffers.Binary;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
@@ -31,17 +32,18 @@ namespace ItMusicInfo
 
         public string? Copyright { get; set; }
 
-        [JsonIgnore] public JacketInfo? Jacket { get; set; }
+        [JsonIgnore] public string? FilePath { get; set; }
 
-        public static SongData Extract(string path)
+        public static SongData Extract(string path, bool readJacketSha1 = false)
         {
             var songData = new SongData();
-            songData.LoadCore(path);
+            songData.LoadCore(path, readJacketSha1);
             return songData;
         }
 
-        private void LoadCore(string path)
+        public void LoadCore(string path, bool readJacketSha1 = false)
         {
+            FilePath = path;
             var tagfile = TagLib.File.Create(path);
             var tags = tagfile.Tag;
             Name = tags.Title;
@@ -88,11 +90,7 @@ namespace ItMusicInfo
             Link = link?.Link;
             Provider = link?.Provider;
 
-            if (GetJacketInfo(tagfile.Tag.Pictures) is { } jacketInfo)
-            {
-                Jacket = jacketInfo;
-                JacketSha1 = jacketInfo.Sha1;
-            }
+            if (readJacketSha1 && GetJacketInfo(tagfile.Tag.Pictures) is { } jacketInfo) JacketSha1 = jacketInfo.Sha1;
         }
 
         private static bool TryGetTag<T>(TagLib.File file, [NotNullWhen(true)] out T? tag) where T : Tag
@@ -111,22 +109,45 @@ namespace ItMusicInfo
             }
         }
 
+        public JacketInfo? GetJacketInfo(Dictionary<string, JacketInfo>? registry = null, bool setSha1 = true)
+        {
+            if (FilePath == null) return null;
+            var tagfile = TagLib.File.Create(FilePath);
+            if (tagfile.Tag.Pictures.Length == 0) return null;
+            var p0 = tagfile.Tag.Pictures[0];
+            byte[] buf = p0.Data.Data;
+            string totalHash = Convert.ToHexString(SHA1.HashData(buf));
+            JacketInfo? res;
+            if (registry != null && registry.TryGetValue(totalHash, out var info))
+                res = info;
+            else
+            {
+                res = GetJacketInfo(buf, p0.Filename ?? "");
+                if (registry != null) registry[totalHash] = res;
+            }
+
+            if (setSha1 && res != null) JacketSha1 = res.Sha1;
+            return res;
+        }
+
         private static JacketInfo? GetJacketInfo(IPicture[] pictures)
         {
             if (pictures.Length == 0) return null;
             try
             {
-                var p0 = pictures[0];
-                byte[] buf = p0.Data.Data;
-                using Image<Rgba32> img = Image.Load(buf);
-                return new JacketInfo(Sha1(img), Path.GetExtension(p0.Filename).ToLowerInvariant(), buf);
+                var picture = pictures[0];
+                return GetJacketInfo(picture.Data.Data, picture.Filename ?? "");
             }
             catch
             {
-                // fail
+                return null;
             }
+        }
 
-            return null;
+        private static JacketInfo GetJacketInfo(byte[] buf, string filename)
+        {
+            using Image<Rgba32> img = Image.Load(buf);
+            return new JacketInfo(Sha1(img), Path.GetExtension(filename).ToLowerInvariant(), buf);
         }
 
         private static string Sha1(Image<Rgba32> img)

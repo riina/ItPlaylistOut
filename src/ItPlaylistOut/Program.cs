@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text.Json;
@@ -21,19 +22,21 @@ namespace ItPlaylistOut
 
         private static async Task Process(Options opts)
         {
-            var pl = await WindowsItunes.GetPlaylistAsync(opts.LibraryPath, opts.Playlist, null,
-                CancellationToken.None);
+            Console.WriteLine("Reading playlist...");
+            var pl = await WindowsItunes.GetPlaylistAsync(opts.LibraryPath, opts.Playlist, false,
+                null, CancellationToken.None);
             if (pl == null)
             {
                 Console.WriteLine("Failed to get playlist");
                 return;
             }
 
-            if (opts.JacketFolder != null)
-                foreach (var song in pl.Songs)
-                    if (song.Jacket != null)
-                        await Jackets.WriteImageAsync(opts.JacketFolder, opts.LosslessJackets, song.Jacket,
-                            CancellationToken.None);
+            Console.WriteLine("Reading jacket data...");
+            Dictionary<string, JacketInfo> knownMainHashes = new();
+            foreach (var song in pl.Songs)
+                if (song.GetJacketInfo(knownMainHashes) is { } jacket)
+                    if (opts.JacketFolder != null)
+                        await jacket.WriteImageAsync(opts.JacketFolder, opts.LosslessJackets, CancellationToken.None);
 
             Directory.CreateDirectory(Path.GetDirectoryName(opts.OutFile)!);
             await using FileStream fs = File.Create(opts.OutFile);

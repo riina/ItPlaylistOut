@@ -16,7 +16,7 @@ namespace ItMusicInfo.Itunes.Windows
         private const string LibraryFile = "iTunes Music Library.xml";
 
         public static async Task<PlaylistData?> GetPlaylistAsync(string libraryPath, string playlistName,
-            IProgress<int>? progress, CancellationToken cancellationToken)
+            bool readJacketSha1, IProgress<int>? progress, CancellationToken cancellationToken)
         {
             XElement? xml;
             await using (var pfs = File.OpenRead(Path.Combine(libraryPath, LibraryFile)))
@@ -48,7 +48,7 @@ namespace ItMusicInfo.Itunes.Windows
                 if (x is not { } v || !tracks.TryGetValue(v.ToString(), out var t) || t is not PlistDict track)
                     continue;
                 if (track.TryGetString("Location", out string? location))
-                    pl.Songs.Add(SongData.Extract(DecodePath(TrimNetpathStart(location))));
+                    pl.Songs.Add(SongData.Extract(DecodePath(TrimNetpathStart(location)), readJacketSha1));
                 else
                 {
                     var songData = new SongData
