@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -12,43 +13,50 @@ namespace SimplePlistXmlRead
 
         public bool TryGetValue(string key, [NotNullWhen(true)] out PlistValue? value)
         {
-            if (GetKeyElements().FirstOrDefault(k => (string)k == key) is not { } element)
+            if (GetLazyValueEnumerable().FirstOrDefault(k => k.Key == key) is not {Key: { }} element)
             {
                 value = default;
                 return false;
             }
 
-            value = GetValueFromKeyElement(element);
+            value = GetValue(element.Value);
             return true;
         }
 
         private static string GetKeyNameFromKeyElement(XElement element) =>
             (string)element;
 
-        private static PlistValue GetValueFromKeyElement(XElement element) =>
-            GetValue(GetValueElementFromKeyElement(element));
-
-        private static XElement GetValueElementFromKeyElement(XElement element) =>
-            element.ElementsAfterSelf().First();
-
-        private IEnumerable<XElement> GetKeyElements() =>
-            Value.Elements("key").Where(k => k.ElementsAfterSelf().Any());
+        private IEnumerable<XElement> GetKeyElements() => Value.Elements().Where((_, i) => i % 2 == 0);
+        private IEnumerable<XElement> GetValueElements() => Value.Elements().Where((_, i) => i % 2 == 1);
 
         public PlistValue this[string key] =>
             TryGetValue(key, out var value) ? value : throw new KeyNotFoundException();
 
-        public IEnumerable<string> Keys =>
-            GetKeyElements().Select(k => k.Name.LocalName);
-
-        public IEnumerable<PlistValue> Values =>
-            GetKeyElements().Select(GetValueFromKeyElement);
+        public IEnumerable<string> Keys => GetKeyElements().Select(GetKeyNameFromKeyElement);
+        public IEnumerable<PlistValue> Values => GetValueElements().Select(GetValue);
 
         public IEnumerator<KeyValuePair<string, PlistValue>> GetEnumerator()
         {
-            foreach (var key in GetKeyElements())
-                yield return new KeyValuePair<string, PlistValue>(
-                    GetKeyNameFromKeyElement(key),
-                    GetValueFromKeyElement(key));
+            using var enumerator = Value.Elements().GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                var k = enumerator.Current;
+                if (!enumerator.MoveNext()) throw new InvalidDataException();
+                var v = enumerator.Current;
+                yield return new KeyValuePair<string, PlistValue>(GetKeyNameFromKeyElement(k), GetValue(v));
+            }
+        }
+
+        private IEnumerable<KeyValuePair<string, XElement>> GetLazyValueEnumerable()
+        {
+            using var enumerator = Value.Elements().GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                var k = enumerator.Current;
+                if (!enumerator.MoveNext()) throw new InvalidDataException();
+                var v = enumerator.Current;
+                yield return new KeyValuePair<string, XElement>(GetKeyNameFromKeyElement(k), v);
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

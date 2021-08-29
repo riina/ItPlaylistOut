@@ -33,9 +33,10 @@ namespace ItPlaylistOut
 
             Console.WriteLine("Reading jacket data...");
             Dictionary<string, JacketInfo> knownMainHashes = new();
+            HashSet<string> knownSubHashes = new();
             foreach (var song in pl.Songs)
                 if (song.GetJacketInfo(knownMainHashes) is { } jacket)
-                    if (opts.JacketFolder != null)
+                    if (opts.JacketFolder != null && knownSubHashes.Add(jacket.Sha1))
                         await jacket.WriteImageAsync(opts.JacketFolder, opts.LosslessJackets, CancellationToken.None);
 
             Directory.CreateDirectory(Path.GetDirectoryName(opts.OutFile)!);
