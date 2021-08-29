@@ -32,7 +32,7 @@ namespace ItPlaylistOut
             }
 
             Console.WriteLine("Reading jacket data...");
-            await pl.LoadJacketsAsync(opts.JacketFolder, opts.LosslessJackets, CancellationToken.None);
+            await pl.Songs.LoadJacketsAsync(opts.JacketFolder, opts.LosslessJackets, CancellationToken.None);
 
             Directory.CreateDirectory(Path.GetDirectoryName(opts.OutFile)!);
             await using FileStream fs = File.Create(opts.OutFile);

@@ -43,40 +43,52 @@ namespace ItMusicInfo.Itunes.Windows
             return new WindowsItunesLibrary(rootDict, tracks, playlists);
         }
 
+        public override IEnumerable<SongInfo> GetSongs() => s_tracks.Values.OfType<PlistDict>().Select(GetSongInfo);
+
+        public override IEnumerable<PlaylistInfo> GetPlaylists()
+        {
+            throw new NotImplementedException();
+        }
+
         public override PlaylistInfo? GetPlaylist(string playlistName)
         {
-            if (s_playlists.OfType<PlistDict>().FirstOrDefault(v =>
-                v.TryGetString("Name", out string? value) &&
-                string.Equals(value, playlistName, StringComparison.InvariantCultureIgnoreCase)) is not { } playlist)
-                return null;
+            foreach (var pp in s_playlists.OfType<PlistDict>())
+            {
+                if (!pp.TryGetString("Name", out string? name)) continue;
+                if (!string.Equals(name, playlistName, StringComparison.InvariantCultureIgnoreCase)) continue;
+                return GetPlaylistInfo(name, pp, s_tracks);
+            }
 
+            return null;
+        }
+
+        private static PlaylistInfo GetPlaylistInfo(string name, PlistDict playlist,
+            Dictionary<string, PlistValue> tracks)
+        {
             if (!playlist.TryGetArray("Playlist Items", out var items))
-                return null;
+                throw new PlaylistLoadException("Missing Playlist Items data", name);
 
             var itemKeys = items.OfType<PlistDict>()
                 .Select(d => d.TryGetInteger("Track ID", out long? value) ? value : null).ToList();
 
-            var pl = new PlaylistInfo {Name = (string)(playlist["Name"] as PlistString)!, Songs = new List<SongInfo>()};
+            var pl = new PlaylistInfo {Name = name, Songs = new List<SongInfo>()};
             foreach (long? x in itemKeys)
-            {
-                if (x is not { } v || !s_tracks.TryGetValue(v.ToString(), out var t) || t is not PlistDict track)
-                    continue;
-                if (track.TryGetString("Location", out string? location))
-                    pl.Songs.Add(SongInfo.Extract(DecodePath(TrimNetpathStart(location))));
-                else
-                {
-                    var songData = new SongInfo
-                    {
-                        Name = track.TryGetString("Name", out string? name) ? name : $"??? (ID {v})",
-                        Album = track.TryGetString("Album", out string? album) ? album : null,
-                        Artist = track.TryGetString("Artist", out string? artist) ? artist :
-                            track.TryGetString("Album Artist", out string? albumArtist) ? albumArtist : null
-                    };
-                    pl.Songs.Add(songData);
-                }
-            }
-
+                if (x is { } v && tracks.TryGetValue(v.ToString(), out var t) && t is PlistDict track)
+                    pl.Songs.Add(GetSongInfo(track));
             return pl;
+        }
+
+        private static SongInfo GetSongInfo(PlistDict songValueDict)
+        {
+            if (songValueDict.TryGetString("Location", out string? location))
+                return SongInfo.Extract(DecodePath(TrimNetpathStart(location)));
+            return new SongInfo
+            {
+                Name = songValueDict.TryGetString("Name", out string? name) ? name : "???",
+                Album = songValueDict.TryGetString("Album", out string? album) ? album : null,
+                Artist = songValueDict.TryGetString("Artist", out string? artist) ? artist :
+                    songValueDict.TryGetString("Album Artist", out string? albumArtist) ? albumArtist : null
+            };
         }
 
         private static readonly Regex s_pathRegex = new(@"(%[A-Za-z\d]{2})+");
